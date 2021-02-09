@@ -67,7 +67,107 @@
 
 	</div> <!-- #dom-section -->
 
+	<script>
+		// This is where we write JS
+		// we like to write JS on the bottom of the HTML file (right before body tag closes) because we want the HTML tags to load first and then the JS can comes in to manipulate the above HTML elements
 
+		console.log("hiiiii")
+
+		let message = "hey"
+		let age = 21
+
+		// print out to the console
+		console.log(message)
+
+		// create pop up message
+		//alert("Hellow World")
+
+		// .querySelector returns the element that you specify in the argument 
+		console.log(document.querySelector("#first"));
+
+		// Change text with JavaScript
+		document.querySelector("#first").innerHTML = "CHANGE"
+
+		// change style properties with JavaScript
+		document.querySelector("#first").style.color = "pink"
+
+		// background color:
+		document.querySelector("#first").style.backgroundColor = "yellow"
+
+		// Add CSS Class with JS
+		document.querySelector("#first").classList.add("orange")
+
+		// Grab elements by class
+		//.querySelector - only grabs the first match
+		document.querySelector(".paragraph").style.fontSize = "40px"
+
+		// Grab multiple elements by class
+		// .querySelectorAll returns an array of matches
+		let paragraphs = document.querySelectorAll(".paragraph")
+
+		// Therefore, if I want to change ALL the matches of .paragraph, I have to iterate thru the array and change each element individually
+		for (let i = 0; i < paragraphs.length; i++) {
+			paragraphs[i].style.fontSize = "40px"
+		}
+
+		//paragraphs.forEach(p => p.fontSize = "40px")
+
+		// EVENTS
+
+		// --- USING A DECLARED FUNCTION ---
+		function greeting() {
+			alert("hey don't click me")
+		}
+		//document.querySelector("#btn-click").onclick = greeting;
+
+		// --- USING ANONYMOUS FUNCTION ---
+		document.querySelector("#btn-click").onclick = function() {
+			// every time someone clicks on this button, the following code will run
+			alert("hey don't click me!")
+		}
+
+		// --- NEWER way to write event handlers ---
+		document.querySelector("#btn-click").addEventListener("click", greeting);
+
+		// passing anonymous function 
+		// very common! people like it because it doens't overwrite
+		document.querySelector("#btn-click").addEventListener("click", function() {
+			alert("Hey don't click me!")
+		});
+
+		document.querySelector("#kanye").onmouseover = function() {
+			// JS can edit any of the attributes in the html object/tag
+			//document.querySelector("#kanye").src = "images/kanye-2.jpg"
+			//document.querySelector("#kanye").alt = "kanye east"
+
+			// "this" refers to the thing that was just mouseovered on
+			// ie. the element that triggered this event
+			this.src = "images/kanye-2.jpg"
+			this.alt = "kanye east"
+		}
+
+		document.querySelector("#kanye").onmouseleave = function() {
+			document.querySelector("#kanye").src = "images/kanye-1.jpg"
+			document.querySelector("#kanye").alt = "kanye west"
+		}
+
+		// --- COLOR BOXES ---
+		// Select all the boxes by class
+		// .querySelectorAll returns an array
+		let boxes = document.querySelectorAll(".color-box")
+
+
+		// Add an event handler for each individual box
+		for (let i = 0; i < boxes.length; i++) {
+			boxes[i].onclick = function() {
+				//console.log(i)
+				//document.querySelector("body").style.backgroundColor = boxes[i].dataset.color
+				//document.querySelector("body").style.backgroundColor = this.dataset.color
+
+			}
+		}
+
+	</script>
 </body>
 </html>
 
