@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pikachu</title>
+	<style>
+		p {
+			color: gray;
+		}
+		p strong {
+			background-color: yellow;
+		}
+		/* Selects a class*/
+		/* can apply class to multiple things*/
+		.blue-text {
+			color: blue;
+		}
+		h1 {
+			color: blue;
+		}
+		h2 {
+			color: green;
+		}
+		img {
+			width: 300px;
+			height: auto;
+		}
+		/*ID - only one element can have that ID*/
+		#main-image {
+			width: 400px;
+			height: auto;
+			float: left;
+		}
+		#header {
+			background-color: yellow;
+			text-align: center;
+		}
+		#header h1 {
+			margin-top: 0px;
+		}
+		#biology {
+			background-color: pink;
+			/*creates space inside the div*/
+			padding: 0px 20px 10px 20px;
+			/*creates space outside the div*/
+			margin-left: auto;
+			margin-right: auto;
+			width: 800px;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<!-- everything in the body tag is what is what is displayed on the browser-->
+		<h1>All About Pikachu</h1>
+	</div>
+	<div id="biology">
+		
+		
+		<!-- img tag does not have a clsoing tag -->
+		<!-- absolute path: advantage is it's super easy. disadvantage: if owner of image takes it down the image disappears from the website -->
+		<img id="main-image" src="imgs/pikachu.png"/>
+		<h2>Biology</h2>
+
+		<p class="blue-text">Pikachu is a short, chubby rodent <strong>Pokémon</strong>. It is covered in <em>yellow</em> fur with two horizontal brown stripes on its back. It has a small mouth, long, pointed ears with black tips, brown eyes, and the two red circles on its cheeks contain pouches for electricity storage. It has short forearms with five fingers on each paw, and its feet each have three toes. At the base of its lightning bolt-shaped tail is a patch of brown fur. A female will have a V-shaped notch at the end of its tail, which looks like the top of a heart. It is classified as quadruped, but it has been known to stand and walk on its hind legs.</p>
+
+		<p>The anime has shown that wild Pikachu live in groups in forested areas. Pikachu communicates amongst themselves using squeaks and tail-shaking as friendly gestures. Electricity can be used to receive and send messages with each other, as well as other Electric Pokémon species. It raises its tail to check its surroundings and is occasionally struck by lightning in this position. When groups grow, they can inadvertently cause lightning storms. Pikachu is found foraging for berries it roasts with electricity to make them tender enough to eat. A sure sign that Pikachu inhabits a location is patches of burnt grass. It has been observed eating and sometimes destroying telephone poles, wires, and other electronic equipment.</p>
+	</div>
+	
+	<div>
+		<h2>Facts</h2>
+		<ul>
+			<li>Pikachu evolves into Raichu</li>
+			<li>is electric type</li>
+			<li>favorite food is ketchup</li>
+		</ul>
+
+		<!-- href is an attribute of <a> tag. it defines the URL that this link will open -->
+		<a href="https://www.google.com">Click this link</a> to read more about Pikachu!
+	</div>
+
+	
+</body>
+</html>

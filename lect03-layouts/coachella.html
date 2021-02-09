@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coachella</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		#header {
+			background-color: #f5dfc0;
+			text-align: center;
+		}
+		#header h1 {
+			margin: 0px 0px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		#about {
+			background-color: pink;
+			margin-left: auto;
+			margin-right: auto;
+			width: 700px;
+		}
+		#about-pic {
+			background-color: lightgreen;
+			width: 300px;
+			float: left;
+		}
+		#about-pic img {
+			width: 200px;
+
+		}
+		#about-text {
+			background-color: pink;
+			width: 400px;
+			/* float does two things
+				1. pushes this element to the left as possible
+				2. side effect: any elements that come after the div, will
+				try to wrap around the floated element*/
+			float: left;
+			
+		}
+
+		#artists {
+			background-color: skyblue;
+			width: 776px;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 10px 10px
+		}
+		.artist-box {
+			background-color: #fef587;
+			width: 200px;
+			float: left;
+			margin: 0px 10px;
+			padding: 15px 15px;
+
+			border: 1px solid black;
+		}
+		.artist-box img {
+			width: 200px;
+		}
+		.clear-float {
+			clear: both;
+		}
+		#footer {
+			background-color: black;
+			color: white;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>Coachella</h1>
+	</div>
+	<!-- By default, divs go as wide as it can. Divs also grow as tall as the contends inside -->
+	<div id="about">
+		<div id="about-pic">
+			<img src="images/coachella.png" alt="Palm Tree"/>
+		</div>
+
+		<div id="about-text">
+			<p>The Coachella Valley Music and Arts Festival (commonly called Coachella or the Coachella Festival) is an annual music and arts festival held at the Empire Polo Club in Indio, California, in the Coachella Valley in the Colorado Desert. It was co-founded by Paul Tollett and Rick Van Santen in 1999, and is organized by Goldenvoice, a subsidiary of AEG Presents. The event features musical artists from many genres of music, including rock, pop, indie, hip hop and electronic dance music, as well as art installations and sculptures. Across the grounds, several stages continuously host live music.</p>
+		</div>
+		<div class="clear-float"></div>
+	</div>
+
+	
+
+	<div id="artists">
+		<h2>Artists</h2>
+
+		<div class="artist-box">
+			<img src="images/ariana.jpg" alt="Ariana Grande">
+			<h3>Ariana Grande</h3>
+		</div>
+
+		<div class="artist-box">
+			<img src="images/gambino.jpg" alt="Childish Gambino">
+			<h3>Childish Gambino</h3>
+		</div>
+
+		<div class="artist-box">
+			<img src="images/blackpink.jpg" alt="Blackpink">
+			<h3>Blackpink</h3>
+		</div>
+
+		<!-- DONT forget to clear float when you are done! (aka when done with one row, just clear the float) -->
+		<div class="clear-float"></div>
+	</div>
+
+	
+
+	<div id="footer">
+		<p>Copyright 2021</p>
+	</div>
+</body>
+</html>

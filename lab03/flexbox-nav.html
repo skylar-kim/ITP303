@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flexbox Nav Lab</title>
+	<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+		html,body{
+			margin: 0;
+			padding: 0;
+			font-family: 'Karla', sans-serif;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		#container {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			background-color: #F2D5D5;
+			justify-content: center;
+			flex-wrap: nowrap;
+
+		}
+		a {
+			background-color: #F2D5D5;
+			text-align: center;
+			padding: 10px;
+			color: #261413;
+			text-decoration: none;
+			width: 175px;
+			font-size: 20px;
+			
+		}
+		a:hover {
+			background-color: #F294A5;
+		}
+
+		/* Tablet */
+		@media (max-width: 991px) {
+			#container {
+				flex-wrap: wrap;
+			}
+			a {
+				width: 50%;
+			}
+		}
+
+		/* Mobile */ 
+		@media (max-width: 767px) {
+			#container {
+				flex-wrap: wrap;
+			}
+			a {
+				width: 100%;
+				font-size: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<a href="#">home</a>
+		<a href="#">about</a>
+		<a href="#">team</a>
+		<a href="#">contact</a>
+	</div>
+</body>
+</html>

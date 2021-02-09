@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrap</title>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<style>
+		/*.btn-primary {
+			background-color: pink;
+			border-color: pink;
+			 Override bootstrap's CSS? technically you can
+			however there is a problem because you will lose Bootstrap CSS
+			DONT DO THIS
+		}*/
+
+		/* DO THIS INSTEAD*/
+		.btn-pink {
+			background-color: pink;
+			border-color: pink;
+		}
+		.btn-pink:hover {
+			background-color: white;
+			border-color: pink;
+			color: black;
+		}
+
+	</style>
+</head>
+<body>
+
+	<h1>Hello</h1>
+
+	<button class="btn btn-primary btn-pink">Click me!</button>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>USC Bookstore</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial;
+		}
+		#header {
+			height: 400px;
+			line-height: 400px;
+			background-image: url("images/bookstore-bg.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center top;
+			text-align: center;
+		}
+		#header h1 {
+			font-size: 40px;
+			color: white;
+			margin: 0;
+		}
+		h2 {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+		#best-seller, #sale {
+			padding-top: 20px;
+			padding-bottom: 30px;
+		}
+
+		/* -- All products are in a div .item -- */
+		.item img {
+			width: 100%;
+		}
+		.item .name {
+			font-weight: bold;
+			text-align: center;
+		}
+		.item .price {
+			text-align: center;
+		}
+
+		/* -- Best Seller -- */
+		#best-seller {
+			/* (300 + 20 + 20 ) * 3 = 1020*/
+			width: 90%;
+			max-width: 1200px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: yellow;
+		}
+		#best-seller .row .item {
+			background-color: #cdcdcd;
+			float: left;
+			/*width: 300px;*/
+			/* % is % of this element's nearest ancestor with a set width. In this case, /item's width will be 33.33% of #best-seller (/row is its direct parent but .row does not have a set width */
+			width: 31.33%;
+			/*padding: 10px;*/
+			/*padding: 1%;*/
+			padding: 10px;
+			margin: 1%;
+			border: 1px solid black;
+
+			/* cahanges this element so that the width is set as the width it says it is. Padding and borders will NOT affect the width of this element.*/
+			/* ie. if width; 300px, no matter how much padding you put in, the stuff inside the box will shrink. */
+			box-sizing: border-box;
+		}
+		/* A better way to clear floats */
+		.row:after {
+			/* content is required */
+			content: "";
+			/* clear both is important! */
+			clear: both;
+			/* this is for older browser*/
+			display: table; 
+		}
+
+		/* -- On Sale -- */
+		#sale {
+			/*width: 1360px;*/
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: skyblue;
+		}
+		#sale .row .item {
+			background-color: #cdcdcd;
+			float: left;
+			width: 23%;
+			padding: 10px;
+			margin: 1%;
+			box-sizing: border-box;
+		}
+		#footer {
+			background-color: black;
+			color: #aaa;
+			font-size: 10px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		/*media queries: we can apply specific CSS for different screen sizes using media*/
+
+		/*#best-seller: screen sizes 0-991px will have backgorund color green*/
+		@media (max-width: 991px) {
+			#best-seller {
+				background-color: green;
+			}
+		}
+		/* screen sizes 0-767px will have background color blue*/
+		@media(max-width: 767px) {
+			#best-seller {
+				background-color: blue;
+			}
+			#sale {
+				width: 100%;
+			}
+			#sale .row .item {
+				width: 48%;
+			}
+		}
+		@media(max-width: 575px) {
+			#best-seller {
+				background-color: pink;
+			}
+			#sale .row .item {
+				width: 98%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1>USC Bookstore Website</h1>
+	</div>
+
+	<div id="best-seller">
+		<h2>Best Sellers</h2>
+		<div class="row">
+			<div class="item">
+				<img src="images/hoodie.jpg" />
+				<div class="name">Hoodie</div>
+				<div class="price">$70.95</div>
+			</div>
+			<div class="item">
+				<img src="images/full-zip.jpg" />
+				<div class="name">Full Zip</div>
+				<div class="price">$63.99</div>
+			</div>
+			<div class="item">
+				<img src="images/pullover.jpg" />
+				<div class="name">Pullover</div>
+				<div class="price">$56.98</div>
+			</div>
+			<!-- dont have to do clear float anymore because we have the .row:after -->
+		</div>
+	</div>
+
+	<div id="sale">
+		<h2>On Sale</h2>
+		<div class="row">
+			<div class="item">
+				<img src="images/fleece-pant.jpg" />
+				<div class="name">Fleece Pant</div>
+				<div class="price">$20.05</div>
+			</div>
+			<div class="item">
+				<img src="images/cozy.jpg" />
+				<div class="name">Cozy</div>
+				<div class="price">$20.99</div>
+			</div>
+			<div class="item">
+				<img src="images/polo.jpg" />
+				<div class="name">Polo</div>
+				<div class="price">$25.00</div>
+			</div>
+			<div class="item">
+				<img src="images/shorts.jpg" />
+				<div class="name">Shorts</div>
+				<div class="price">$12.99</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		University of Southern California. 2020.
+	</div>
+
+</body>
+</html>

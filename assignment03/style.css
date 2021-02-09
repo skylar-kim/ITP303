@@ -1,0 +1,93 @@
+.navbar {
+	background-color: #F2DBAE;
+
+}
+.imgicon {
+	width: 80px;
+}
+
+#header {
+	text-align: center;		
+	background-image: url(images/honeyheader2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 30%;
+	padding: 70px;
+	font-size: 30px;
+	text-shadow: 2px 2px 0px #694711;
+	height: 40%;
+	color: white;
+}
+#header .headertitle {
+	font-size: 60px;
+	text-shadow: 3px 3px 0px #694711;
+}
+
+body {
+	font-family: 'Karla', sans-serif;
+}
+
+
+.title {
+	text-align: center;
+	color: #261C14;
+}
+.producttitle {
+	text-align: center;
+	color:#8C4F2B;
+}
+.productpic img{
+	width: 100%;
+}
+
+footer {
+	background-color: #593F28;
+	color: #F2DBAE;
+}
+footer a {
+	color: #F2DBAE;
+}
+hr {
+  border: 0;
+  clear:both;
+  display: block;
+  width: 96%;               
+  background-color:#8C4F2B;
+  height: 1px;
+  
+}
+
+.member img{
+	width: 100%;
+}
+.member {
+	/*background-color: #F2CC85;*/
+	color: #593F28;
+}
+.member h2 {
+	text-align: center;
+}
+
+.jobtitle {
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.producttitle {
+		text-align: left;
+		color:#8C4F2B;
+	}
+}
+
+@media (min-width: 992px) {
+	#header {
+		padding: 70px;
+		height: 40%;
+	}
+	.productdesc p {
+		font-size: 20px;
+	}
+	.producttitle {
+		text-align: left;
+	}
+}

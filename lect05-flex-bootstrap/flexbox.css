@@ -1,0 +1,70 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+/* the * selects ALL HTML elements in the page*/
+* {
+	box-sizing: border-box;
+}
+
+/* Colors for each box. */
+.box1 { background-color: #011627; }
+.box2 { background-color: #EB5160; }
+.box3 { background-color: #030301; }
+.box4 { background-color: #00D9C0; }
+.box5 { background-color: #FF0022; }
+
+/* The parent */
+.container {
+  border: 10px solid skyblue;
+  display:flex;
+
+  height: 500px;
+
+  /* flex-direction defines the MAIN axis */
+  /*flex-direction: row;*/
+  flex-direction: row;
+  /* default is nowrap, makes all child elements
+  	stay in one row
+  	wrap: makes width a fixed size, any element that can't fit in
+  	will get moved down to the next row*/
+  flex-wrap: wrap;
+  
+  /* justify content: defines alignment along the MAIN axis
+  	default: left to right
+  	what is the main axis: defined by flex-direction!!!!*/
+  justify-content: space-between; 
+
+  /* align-items defines alignment along the CROSS axis
+  	it is the opposite of justify-content */
+  	/*align-items: stretch;*/
+
+  	/* align-items: center -> REALLY good for centering things vertically*/
+  	/*align-items: center;*/
+  	/*align-items: flex-end; */
+  	align-items: flex-start;
+
+  	/* by adding the CSS properties in the .container, u can manipulate the children*/
+}
+
+/* .container's direct children */
+.box {
+	color: white;
+  font-size: 28px;
+
+  width: 100px; 
+  /*margin: 5px;*/
+
+}
+
+.box2 {
+	/* by default, all child flex items
+	have an order of 0*/
+	/* the higher the order, it goes to the "end" */
+	order: 1;
+}
+
+.box4 {
+	order: 2;
+}
