@@ -56,7 +56,7 @@
 		<h2>DOM Traversal</h2>
 
 		<h3>Lorem ipsum dolor sit amet</h3>
-
+		<!-- immediate sibling of h3 is a whitespace, but we don't care about whitespace!!! -->
 		<p>Consectetur adipiscing elit. Proin nibh eros, tincidunt at metus non, ultrices vulputate felis. Suspendisse potenti. Vivamus sit amet cursus dolor, at lacinia dui. Pellentesque fringilla enim nibh, quis lobortis ante dictum vel. Etiam tortor turpis, venenatis sit amet est et, dictum auctor dolor. Etiam vehicula iaculis pharetra. Sed viverra interdum efficitur.</p>
 
 		<h3>Quisque volutpat eros ullamcorper</h3>
@@ -167,9 +167,62 @@
 			}
 		}
 
+		// DOM TRAVERSAL
+
+		// ACCORDIAN
+		// picking all the h3 tags
+		let titles = document.querySelectorAll("#dom-section h3")
+
+		for (let i = 0; i < titles.length; i++) {
+			// every time you click on a h3, something will happen
+			// h3 and p are siblings
+			// when you click on h3, want to grab its immediate sibling
+			// DOM TRAVERSAL
+			titles[i].onclick = function() {
+				// console.log(this.nextElementSibling)
+				// instead of setting the visibility, just add a hide CSS class
+				//this.nextElementSibling.classList.add("hide")
+
+				// toggling
+				// .contains() returns true or false
+				// true if the element contains a class name "hide"
+				if (this.nextElementSibling.classList.contains("hide")) {
+					this.nextElementSibling.classList.remove("hide")
+				} else {
+					this.nextElementSibling.classList.add("hide")
+				}
+
+			}
+		}
+
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
