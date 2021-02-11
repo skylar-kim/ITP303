@@ -101,5 +101,69 @@
 		</div> <!-- #main-img-container -->
 
 	</div> <!-- .section -->
+
+	<script>
+		let thumbnails = document.querySelectorAll(".thumbnail")
+		//let pics = []
+		//let alts = []
+
+		// for (let i = 0; i < document.querySelectorAll(".thumbnail").length; i++) {
+		// 	let pic = thumbnails[i].children[0].src
+		// 	let alt = thumbnails[i].children[0].alt
+		// 	pics.push(pic)
+		// 	alts.push(alt)
+		// }
+		//console.log(pics)
+		//console.log(alts)
+
+
+		for (let i = 0; i < thumbnails.length; i++) {
+			thumbnails[i].onclick = function() {
+				// change the image src 
+				//document.querySelector("#main-img-container").children[0].src = pics[i]
+				document.querySelector("#main-img-container").children[0].src = this.children[0].src
+				// change the alt
+				//document.querySelector("#main-img-container").children[0].alt = alts[i]
+				document.querySelector("#main-img-container").children[0].alt = this.children[0].alt
+				// change the caption
+				document.querySelector("#main-img-container").children[1].innerHTML = this.children[0].alt
+
+				// resetting all of the boxes to the opacity 0.6 and border black
+				for (let j = 0; j < thumbnails.length; j++) {
+					thumbnails[j].style.opacity = 0.6
+					thumbnails[j].style.borderColor = "#000000"
+
+				}
+
+				//console.log(this.style.opacity)
+				this.style.opacity = 1
+				//console.log(this.style.borderColor)
+				this.style.borderColor = "red"
+
+				
+			}
+		}
+	</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
