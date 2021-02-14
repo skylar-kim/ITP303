@@ -31,7 +31,10 @@
 	<form id="form" method="" action="">
 
 		<div class="form-row">
+
 			<label for="name-input">Name: </label>
+			<!-- name attribute is important for storing information in the database -->
+			<!-- for attribute liks the input tag with the label tag -->
 			<input type="text" id="name-input" name="name-input" placeholder="Tommy Trojan" />
 			<div class="error">Error message</div>
 		</div>
@@ -44,9 +47,169 @@
 
 		<div class="form-row">
 			<button type="submit" id="go-button">Go</button>
+			<button type="reset" id="reset-button">Reset</button>
 		</div>
 
 	</form>
 
+	<script>
+		// ---- KEYBOARD EVENTS
+		// .onkeydown, .onkeyup, .onkeypress
+
+		// if the user presses anywhere in the browswer, the function will run
+		document.onkeydown = function() {
+			//console.log("onkeydown")
+		}
+
+		document.onkeyup = function() {
+			//console.log("onkeyup")
+		}
+
+		let counter = 0
+		// onkeypress is very similar to keydown. 
+		// main diff: keypress does not register special buttons like enter, ctrl, 
+		// arrow buttons, alt, etc. only detects 'typing' keys
+		document.onkeypress = function(event) {
+			//console.log("onkeypress")
+			console.log(event)
+			console.log(event.key)
+			console.log(event.keyCode)
+
+			// Display the keys I pressed in the browser
+			if (counter == 0) {
+				document.querySelector("#text").innerHTML = event.key
+				counter++
+			} else {
+				document.querySelector("#text").innerHTML += event.key
+			}
+			
+		}
+
+		// JS can detect scroll events as well!
+		document.onscroll = function() {
+
+		}
+
+		// ---- JS data types
+		let number = 9
+		let number2 = 9.9
+		let text = "hi"
+
+		//console.log(1+7)
+		//console.log(1+ 2.5)
+		// makes a string
+		//console.log(1+"1") 
+
+		// JS also has 3 special floating numbers: Infinity, -Infinity, NaN
+		//console.log(1/0)
+		//console.log(-1/0)
+		//console.log(0/0)
+		//console.log("hi"/9)
+
+		// Convert strings to integers
+		let string1 = "1000"
+		let string2 = "10.4343"
+		//console.log(parseInt(string1))
+		//console.log(parseFloat(string2))
+		//console.log(parseInt(string1) + parseFloat(string2))
+
+		// ----- STRINGS
+		// string are arrays of characters
+		// string are arrays of characters
+		// strings are immutable
+		let name = "nayeon"
+		//console.log(name[0])
+		//console.log(name.length)
+		//console.log(name.charAt(1))
+
+		// .indexOf() returns the position of the character. returns -1 if not found
+		//console.log(name.indexOf("n"))
+		//console.log(name.lastIndexof("n"))
+		// not changing the name itself. returning a copy of the original string with the uppercase applied
+		//console.log(name.toUpperCase())
+		//console.log(name)
+
+		// ------- FORM EVENTS
+		// Three different form events
+		// 1. .onchange - on specific fields
+		document.querySelector("#name-input").onchange = function() {
+			console.log("name changed!")
+		}
+
+		document.querySelector("#name-input").oninput = function() {
+			// Every time user types into the inpuyt, this function gets run
+			// good for real time check
+			// what is the user typing?
+			console.log("oninput!")
+
+			// get what the user is typing
+			let userInput = document.querySelector("#name-input").value;
+			console.log(userInput);
+		}
+
+		document.querySelector("#form").onsubmit = function(event) {
+			// by default, forms are going to try to submit itself if the form is submitted. we are going to prevent the form from being submitted so that we can do some validation checks
+			event.preventDefault();
+
+			console.log("onsubmit!")
+
+			// can do some validation!
+			let nameInput = document.querySelector("#name-input").value
+
+			if (nameInput.length == 0) {
+				console.log("Name is empty!")
+				// show the error message
+				document.querySelector("#name-input").nextElementSibling.style.visbility = "visible"
+				document.querySelector("#name-input").nextElementSibling.innerHTML = "Name cannot be empty"
+			} else {
+				console.log("Name is good!")
+				// hide the error message
+				document.querySelector("#name-input").nextElementSibling.style.visbility = "hidden"
+			}
+		}
+
+
+	</script>
+
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
