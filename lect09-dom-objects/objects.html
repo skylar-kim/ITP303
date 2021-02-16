@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Objects</title>
+	<style>
+		#people {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h1>People</h1>
+	<div id="people">
+	</div>
+
+	<script>
+
+		// 1. Literal Syntax
+		// IN JS, you do NOT have to create a class before creating an object
+		// you can create objects right away
+		let person = {
+			name: "Tommy Trojan",
+			age: 21,
+			// array
+			hobbies: [
+				"Taking photos",
+				"Posing",
+				"Guarding USC"
+			],
+			// this is a key value
+			phone: {
+				cell: "123-123-1234",
+				work: "555-555-5555"
+			},
+			greet: function() {
+				console.log("Hi! " + this.name)
+			}
+		}
+
+		console.log(person.name)
+		console.log(person.hobbies[2])
+		console.log(person.phone.cell)
+		person.greet()
+
+		console.log(person)
+
+		// 2. Constructor Function syntax
+		function Person(fullName, age) {
+			this.name = fullName
+			this.age = age
+
+			// adding class methods...inside the constructor
+			this.getName = function() {
+				console.log(this.name)
+				return this.name
+			}
+		}
+
+		let joe = new Person("Joe Smith", 22)
+		joe.getName()
+
+		let jim = new Person("Jimmy Kimmel", 35)
+
+		// When working with a lot of objects, 
+		// we can store them in an array
+
+		let peopleList = []
+
+		peopleList.push(joe, jim)
+
+		for (let i = 0; i < peopleList.length; i++) {
+			let pElement = document.createElement("p")
+			pElement.innerHTML = peopleList[i].name + " - "	+ peopleList[i].age
+			document.querySelector("#people").appendChild(pElement)
+		}
+
+		// New Class Method
+		class Person2 {
+			constructor(name, age) {
+				this.name = name
+				this.age = age
+			}
+
+			greet() {
+				//console.log("hi, my name is " + this.name)
+				// newer way to print strings with vars in them
+				console.log(`Hi!!! my name is ${this.name}`)
+			}
+		}
+
+		let bob = new Person2("Bob", 30)
+		console.log(bob.name)
+		bob.greet()
+
+
+		// 4 - New Loops (for...in, for...of)
+
+		// same as for each loop
+		for (let person of peopleList) {
+			console.log(person)
+		}
+
+		// this will return the index
+		// will loop through properties
+		// 
+		for (let personIndex in peopleList) {
+			console.log(personIndex)
+		}
+
+		for (let property in peopleList[0]) {
+			console.log(property)
+		}
+
+	</script>
+</body>
+</html>
