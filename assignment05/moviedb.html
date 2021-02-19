@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie DB API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- TITLE -->
+        <div class="row">
+            <h1 class="col-12 mt-4 text-center">Cinema News Vendor</h1>
+        </div>
+
+        
+
+             
+    </div>
+
+    <!-- MOVIES -->
+    <div class="container">
+        <!-- SEARCH BAR / SUBMISSION FORM -->
+        <div class="row">
+            <form action="" method="" class="col-12 justify-content-center" id="search-form">
+                <div class="form-row col-6 mx-auto">
+                    <!-- SEARCH BOX -->
+                    <div class="col-9 mt-4">
+                        <label for="search-id" class="sr-only">Search:</label>
+                        <input type="text" name="" class="form-control" id="search-id" placeholder="Search...">
+                    </div>
+
+                    <!-- SEARCH BUTTON -->
+                    <div class="col-3 mt-4">
+                        <button type="submit" class="btn btn-primary btn-block">Search</button>
+                    </div>
+                </div> <!-- .form-row -->
+            </form>
+        
+            
+        </div> <!-- .row -->
+
+        <!-- NUMBER OF RESULTS -->
+        <div class="row">
+            <div class="col-12 mt-4">
+				Showing <span id="num-results" class="font-weight-bold">5</span> of <span id="num-totalresults" class="font-weight-bold">20</span> result(s).
+			</div>
+        </div> <!-- .row -->
+
+        <div id="movies" class="row">
+
+            <div class="col-6 col-md-4 col-lg-3 my-2"> 
+                <div class="card" style="width: 12rem;">
+                    <div class="item">
+                        <img src="images/totoro.jpg" class="card-img-top" alt="totoro">
+                        <div class="overlay">
+                            <p class="text-center">Rating: <span class="rating"> 3.5</span></p>
+                            <p class="text-center">Number of Voters: <span class="num-voters"> 100023423423</span></p>
+                            <p class="synopsis">Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When t...</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center">Totoro</p>
+                        <p class="card-text text-center">1993-05-07</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 my-2"> 
+                <div class="card" style="width: 12rem;">
+                    <div class="item">
+                        <img src="images/captainamerica.jpg" class="card-img-top" alt="totoro">
+                        <div class="overlay">
+                            <p class="text-center">Rating: <span class="rating"> 3.5</span></p>
+                            <p class="text-center">Number of Voters: <span class="num-voters"> 100023423423</span></p>
+                            <p class="synopsis">Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When t...</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center">Captain America: the First Avenger</p>
+                        <p class="card-text text-center">1993-05-07</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 my-2"> 
+                <div class="card" style="width: 12rem;">
+                    <div class="item">
+                        <img src="images/django.jpg" class="card-img-top" alt="totoro">
+                        <div class="overlay">
+                            <p class="text-center">Rating: <span class="rating"> 3.5</span></p>
+                            <p class="text-center">Number of Voters: <span class="num-voters"> 100023423423</span></p>
+                            <p class="synopsis">Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When t...</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center">Django Unchained</p>
+                        <p class="card-text text-center">1993-05-07</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 my-2"> 
+                <div class="card" style="width: 12rem;">
+                    <div class="item">
+                        <img src="images/fantasticmrfox.jpg" class="card-img-top" alt="totoro">
+                        <div class="overlay">
+                            <p class="text-center">Rating: <span class="rating"> 3.5</span></p>
+                            <p class="text-center">Number of Voters: <span class="num-voters"> 100023423423</span></p>
+                            <p class="synopsis">Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When t...</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text text-center">Totoro</p>
+                        <p class="card-text text-center">1993-05-07</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>   
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.item {
+    position: relative;
+}
+
+.overlay {
+    background-color: rgba(25,10,6,0.8);
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 3%;
+    font-size: 80%;
+    text-align: center;
+    visibility: hidden;
+}
+
+.item:hover .overlay {
+    visibility: visible;
+}
