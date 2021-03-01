@@ -13,6 +13,12 @@ body {
 	box-shadow: 1px 2px 15px #BABABA;
 }
 
+#header {
+	width: 600px;
+	margin: auto;
+	padding: 10px 20px;
+}
+
 #todo-list {
 	border: 1px solid black;
 	width: 600px;
@@ -20,4 +26,7 @@ body {
 	padding: 10px 20px;
 	border-radius: 13px;
 	box-shadow: 1px 2px 15px #BABABA;
+	background-color: pink;
 }
+
+

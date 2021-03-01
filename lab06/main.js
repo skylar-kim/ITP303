@@ -32,6 +32,10 @@ function displayResults(results) {
 	$(".weather-description").text(displayWeather)
 }
 
+$("select").on("change", function() {
+	console.log($(this).value)
+})
+
 
 
 
