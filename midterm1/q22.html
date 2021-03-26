@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+function displayResults(response) {
+	let responseF = JSON.parse(response);
+
+	let numPokemon = responseF.data.length;
+
+	let parent = document.querySelector("#pokemon-container")
+
+	for (let i = 0; i < numPokemon; i++) {
+		let id = responseF.data[i].id;
+		let name = responseF.data[i].name;
+		let types = responseF.data[i].types;
+		let img_url = responseF.data[i].image_url;
+
+
+		let div = document.createElement("div");
+		let strongT = document.createElement("strong");
+		let imgT = document.createElement("img");
+
+		let description = id + " " + name
+		for (let j = 0; j < types.length; j++) {
+			description += " ";
+			description += types[j];
+		}
+
+		strongT.innerHTML = description;
+		div.appendChild(strongT);
+
+		imgT.src = img_url;
+		div.appendChild(imgT);
+
+		parent.appendChild(div);
+	}
+}
+</script>
+</body>
+</html>

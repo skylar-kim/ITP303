@@ -92,15 +92,20 @@ $("#todo-items").on("click", "li", function(event) {
 	
 })
 
-$("#todo-items").on("click", "span", function(event) {
+$("#todo-items").on("click", "i", function(event) {
 	event.preventDefault();
+	event.stopPropagation();
 	if ($(this).closest("li").css("text-decoration-line") == "line-through") {
-		$(this).css({
+		$(this).closest("li").css({
 			textDecorationLine: "none",
 			color: "black"
 		}) 
 	}
 	$(this).closest("li").fadeOut("slow", function () {
+		$(this).closest("li").css({
+			textDecorationLine: "none",
+			color: "black"
+		}) 
 		$(this).closest("li").remove();
 	})
 	
@@ -113,10 +118,18 @@ $("#todo-form").on("submit", function(event) {
 
 	console.log(itemInput)
 
-	let newItemString = '<li><span class="delete">X</span> ' + itemInput +  "</li>" 
+	let newItemString = '<li class="item"><span class="delete"><i class="far fa-square"></i></span> ' + itemInput +  "</li>" 
 	let newItem = $(newItemString)
 
 	$("#todo-items").append(newItem)
+})
+
+$("#header i").on("click", function() {
+	console.log("plus clicked")
+	$("#todo-form").slideToggle(500, function() {
+		// want this to happen when the animation is completely finished
+		console.log("slide effect finished")
+	});
 })
 
 

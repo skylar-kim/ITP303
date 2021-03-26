@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://kit.fontawesome.com/ba67d9428f.js" crossorigin="anonymous"></script>
 	<meta charset="utf-8">
 </head>
 <body>
@@ -25,21 +26,31 @@
 		</div>
 
 		<div class="todo-list-container">
-			<h1>To Do List</h1>
-			<form id="todo-form">
-				<div class="form-row">
-					<input type="text" id="todo-input" name="name-input" placeholder="Add to-do item here" />
-				</div>
-			</form>
+			<div id="header">
+				<h1>To Do List</h1>
+				<i id="plus-button" class="far fa-plus-square fa-2x plus-class"></i>
+				<div class="clearfloat"></div>
+			</div>
 
-			<div id="todo-list">
-				<ul id="todo-items">
-					<li class="item"><span class="delete">X</span> Study for ITP 303 midterm</li> 
-					<li class="item"><span class="delete">X</span> Take a Nap</li>
-					<li class="item"><span class="delete">X</span> do leetcode sigh</li>
-				</ul>
 
-			</div> <!-- div id="todo-list" -->
+			
+			<div id="todo-form-list">
+				<form id="todo-form">
+					<div class="form-row">
+						<input type="text" id="todo-input" name="name-input" placeholder="Add to-do item here" />
+					</div>
+				</form>
+
+				<div id="todo-list">
+					<ul id="todo-items">
+						<li class="item"><i class="far fa-square"></i> Study for ITP 303 midterm</li> 
+						<li class="item"><i class="far fa-square"></i> Take a Nap</li>
+						<li class="item"><i class="far fa-square"></i> do leetcode sigh</li>
+					</ul>
+
+				</div> <!-- div id="todo-list" -->
+			</div>
+			
 		</div>
 		
 

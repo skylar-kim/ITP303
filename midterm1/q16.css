@@ -1,0 +1,16 @@
+#container {
+	position: relative;
+}
+
+#dot {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#container > #dot {
+	opacity: 1.0;
+}
+#container:hover > #dot {
+	opacity: 0.5;
+}

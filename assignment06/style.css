@@ -3,19 +3,55 @@ body {
 	font-family: "Karla", sans-serif;
 	background-color: #f0f1ff;
 }
-h1 {
+#weather {
+	border: 1px solid black;
+	text-align: center;
+	width: 900px;
+	margin: 30px auto 30px auto;
+	border-radius: 13px;
+	box-shadow: 1px 2px 15px #BABABA;
+	background-color: #d7d9ff;
+}
+
+.todo-list-container {
+	box-shadow: 1px 2px 15px #BABABA;
+	margin: auto;
 	width: 600px;
-	height: 70px;
+	border-radius: 15px;
+}
+
+#header {
+	width: 600px;
 	padding: 15px 10px;
 	margin: auto;
 	text-align: center;
 	background-color: aliceblue;
 	box-sizing: border-box;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 }
+h1 {
+	width: 200px;
+	height: 100%;
+	margin-right: 280px;
+	margin-top: auto;
+	margin-bottom: auto;
+	float: left;
+	
+}
+.plus-class {
+	width: 70px;
+	float: left;
+}
+.clearfloat {clear:both;}
+
 form {
 	width: 600px;
 	height: 40px;
 	margin: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: auto;
 	
 }
 form input {
@@ -27,20 +63,8 @@ form input {
 	font-size: 20px;
 	background-color: #f7f0ff;
 }
-.todo-list-container {
-	box-shadow: 1px 2px 15px #BABABA;
-	margin: auto;
-	width: 600px;
-}
-#weather {
-	border: 1px solid black;
-	text-align: center;
-	width: 900px;
-	margin: 30px auto 30px auto;
-	border-radius: 13px;
-	box-shadow: 1px 2px 15px #BABABA;
-	background-color: #d7d9ff;
-}
+
+
 
 #todo-list {
 	width: 600px;
@@ -48,6 +72,13 @@ form input {
 	padding: 10px 20px;
 	box-sizing: border-box;
 	background-color: white;
+	font-size: 20px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+#todo-list li {
+	list-style-type: none;
 }
 
 .item:hover {
