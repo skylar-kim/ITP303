@@ -22,6 +22,8 @@ JOIN formats
 JOIN sounds
 	ON sounds.sound_id = dvd_titles.sound_id
 WHERE 1=1
-AND dvd_titles.award IS NULL
+-- AND dvd_titles.release_date between '1999-01-01' and '1999-12-31'
+-- AND dvd_titles.release_date > '1999-01-01'
+AND dvd_titles.release_date < '1999-12-31'
 ORDER BY dvd_titles.dvd_title_id;
     
