@@ -249,12 +249,20 @@ Lecture Files: lect16-intro-php
 	- case sensitive
 - printing out in php:
 	`echo` keyword
+```php
+$variable = "Hello World! " . "My name is Skylar. ";
+echo $variable;
 
+```
 ## Superglobals
 - built-in super global variables
 - `$_SERVER`: Array with server and environment information
 - `$_GET`: Array of HTTP GET variables
 - `$_POST`: Array of HTTP POST variables
+```php
+// want to see the contents inside super globals?
+var_dump($_POST)
+```
 
 ## HTTP POST Method
 - Submits all form data in HTTP header
@@ -280,6 +288,10 @@ Lecture Files: lect16-intro-php
 		- sending small amount of data
 		- users can bookmark data
 		- usually used to retrieve data
+
+
+
+
 
 
 
