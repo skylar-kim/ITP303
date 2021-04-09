@@ -27,6 +27,15 @@
 		- A class has many students and one student takes many classes.
 ![relationship types](https://github.com/skylar-kim/ITP303/blob/main/midterm2/relationshiptype.png)
 
+- Normalization: Process of organizing tables to reduce issues/anomalies
+	- basically separate out redundant / repeating data into its own table
+	- Do normalize fields that can be its own "entity" and shows up in multiple rows
+	- Don't normalize any field that can be infinite and would need to be updated constantly
+		- ie. year, price
+
+
+
+
 
 
 
