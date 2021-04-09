@@ -34,7 +34,7 @@ else {
 		$album = $_POST["album"];
 	}
 	else {
-		$album = "null";
+		$album = null;
 	}
 
 	if (isset($_POST["composer"]) && !empty($_POST["composer"]) ) {
@@ -42,7 +42,7 @@ else {
 		$composer = "'" . $_POST["composer"] . "'";
 	}
 	else {
-		$composer = "null";
+		$composer = null;
 	}
 
 	if (isset($_POST["bytes"]) && !empty($_POST["bytes"]) ) {
@@ -50,7 +50,7 @@ else {
 		$bytes = "'" . $_POST["bytes"] . "'";
 	}
 	else {
-		$bytes = "null";
+		$bytes = null;
 	}
 
 	// Escape any special characters.

@@ -393,6 +393,82 @@ Lecture Files: lect18-detail-insert
 - query sql statement
 - check if the `$mysqli->affected_rows` is 1. using that results, display error or success message
 
+# Lecture 19: CRUD Part 2 - Update & Delete
+
+## `include`
+- add code of the specified file where `include` was invoked (kind of reminds me of C...)
+- automatically calls echo on HTML code
+- useful for code that needs to be added to multiple pages
+	- HTML components (navs, footers, etc)
+	- Global variables or config files
+	- etc
+```php
+include 'file/path';
+```
+
+## `require`
+- works the same way as `include` with one difference: if the file is not found:
+	- `include` displays a warning and continues with remaining code
+	- `require` throws an error adn terminates the script.
+- useful for components that are necessary for remaining script
+```php
+require 'components/header.html'
+require 'config/vars.php'
+```
+
+## Constants
+- variables that cannot bed changed or modified once they are initialized
+- useful when defining data that should not be modified
+- good practice: constants are usually in all uppercase eltters
+- do not need $ before the name
+```php
+
+// Define constants - constants cannot be changed after they have been declared.
+
+define("DB_HOST", "303.itpwebdev.com");
+define("DB_USER", "kimsooye_db_user");
+define("DB_PASS", "uscitp2021!");
+define("DB_NAME", "kimsooye_song_db");
+
+```
+
+## Prepared Statements
+- to prevent SQL Injection attacks, must sanitize SQL statements
+- 1. Prepare an SQL query with empty values as placeholders (? for each value)
+- 2. Bind variables to the placeholders by stating each variable, along with its type.
+- 3. Execute query
+- 4 variable types allowed:
+	- i: Integer
+	- d: Double
+	- s: String
+	- b: Blob
+```php
+// Step 1: Prepare an SQL query with empty values as placeholders (? for each value)
+$statement = $mysqli->prepare("INSERT INTO dvd_titles (title, release_date, award, label_id, sound_id, genre_id, rating_id, format_id) 
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+// Step 2: Bind variables to the placeholders by stating each variable, along with its type.
+$statement->bind_param("sssiiiii", 
+		$_POST['title'], 
+		$release_date,
+		$award,
+		$label_id, 
+		$sound_id,
+		$genre_id,
+		$rating_id,
+		$format_id);
+
+// Step 3: Execute Query
+$executed = $statement->execute();
+
+if (!$executed) {
+	echo $mysqli->error;
+	exit();
+}
+```
+
+
+
 
 
 
