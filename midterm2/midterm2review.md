@@ -34,6 +34,45 @@
 		- ie. year, price
 
 
+# Lecture 14: Intro to SQL, Retrieving Data from DB
+
+## Retrieving Data
+- `SELECT`: specifies *columns* to retrieve from DB. Separate multiple columns with commas. * means "all columns"
+- `FROM`: specifies *tables* to retrieve from DB
+- `WHERE`: specifies *condition(s)* while retrieving data
+- `ORDER BY`: sorts data by specified column(s).
+	- `ASC`: ascending order (default)
+	- `DESC`: descending order
+
+```sql
+SELECT track_id, name, genre_id, composer, unit_price
+FROM tracks
+WHERE unit_price > 0.99
+ORDER BY name;
+```
+## WHERE Operators
+`=`: Equal to 
+`<>`: Not equal to
+`>`: Greater than
+`<`: Less than
+`>=`: Greater or equal to
+`<=`: Less than or equal to
+`IS NULL`: is null(empty)
+`IS NOT NULL`: is not null (not empty)
+`BETWEEN a AND b`: greater than a and less than b (inclusive)
+`LIKE`: search for a pattern
+```sql
+SELECT *
+FROM artists 
+WHERE name = 'Frank Sinatra';
+
+SELECT * FROM artists
+WHERE name LIKE 'Frank Sinatra';
+```
+
+## LIKE Operator
+- used to search for patterns
+- often used with wildcards `%`
 
 
 
