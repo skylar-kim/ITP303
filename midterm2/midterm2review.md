@@ -25,7 +25,7 @@
 		- One football player maps to many players that are part of that football team
 	- Many to Many: many things map to many thing
 		- A class has many students and one student takes many classes.
-![relationship types]()
+![relationship types](https://github.com/skylar-kim/ITP303/blob/main/midterm2/relationshiptype.png)
 
 
 
