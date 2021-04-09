@@ -289,6 +289,67 @@ var_dump($_POST)
 		- users can bookmark data
 		- usually used to retrieve data
 
+# Lecture 17: PHP MySQLi
+Lab: no lab
+Assignment 9: DVD Search Pages
+Lecture Files: lect17-php-mysqli
+
+## MySQLi
+- MySQLi: MySQL Improved
+- PHP Extension used by PHP to connect to a MySQL database server
+- Workflow:
+	- Establish DB Connection
+	- Generate & Submit SQL Query
+	- Display Results
+	- Close DB Connection
+
+```php
+// 1. Establish DB Connection
+$host = "itpwebdev.com";
+$user = "trojan_user";
+$password = "trojan_pass";
+$db = "trojan_db_name";
+
+$mysqli = new mysqli($host, $user, $password, $db);
+
+// check if there was a connection error
+if ( $mysqli->connect_errno ) {
+	echo $mysqli->connect_error;
+	exit();
+}
+
+// 2. Generate and Submit SQL Query
+// Generate SQL
+$sql = "SELECT * FROM genres;";
+
+// Submit SQL query to DB
+$results = $mysqli->query($sql);
+
+// Check for errors
+if (!$results) {
+	echo $mysqli->error;
+	exit();
+}
+
+// 3. Display Results
+// Output number of rows in the result
+echo "Number of results: " . $results->num_rows;
+
+// Loop through all the results...but this would be in the HTML doc
+// see line 126 in lect17-intro-php/search_form.php
+
+// 4. Close DB Connection
+$mysqli->close();
+```
+In the HTML Doc:
+```html
+
+<?php while ($row = $results->fetch_assoc() ) :?>
+	 <option value="<?php echo $row['genre_id'] ?>"> <?php echo $row["name"]; ?></option>
+<?php endwhile; ?>
+```
+
+
 
 
 
