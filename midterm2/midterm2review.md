@@ -73,7 +73,7 @@ WHERE name LIKE 'Frank Sinatra';
 ## LIKE Operator
 - used to search for patterns
 - often used with wildcards `%`
-
+![like wildcard](https://github.com/skylar-kim/ITP303/blob/main/midterm2/likewildcard.png)
 
 
 
