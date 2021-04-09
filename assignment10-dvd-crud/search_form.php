@@ -1,13 +1,19 @@
 <?php
 
-$host = "303.itpwebdev.com";
-$user = "kimsooye_db_user";
-$password = "uscitp2021!";
-$db = "kimsooye_dvd_db";
+// import the config/config.php
+require "config/config.php";
 
-$mysqli = new mysqli($host, $user, $password, $db);
+// DB Connection
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if ($mysqli->connect_errno) {
+// $host = "303.itpwebdev.com";
+// $user = "kimsooye_db_user";
+// $password = "uscitp2021!";
+// $db = "kimsooye_dvd_db2";
+
+// $mysqli = new mysqli($host, $user, $password, $db);
+
+if ( $mysqli->connect_errno ) {
 	echo $mysqli->connect_error;
 	exit();
 }
@@ -70,6 +76,7 @@ $mysqli->close();
 
 <body>
 	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.php">Home</a></li>
 		<li class="breadcrumb-item active">Search</li>
 	</ol>
 	<div class="container">

@@ -1,0 +1,14 @@
+<a href="hello.php?hello=world&tuition=80000">Hello World</a>
+
+https://practice.com/hello.php?username=text&password=password
+
+if (!$results) {
+	echo $mysqli->error;
+	exit();
+}
+
+echo $results->num_rows;
+
+INSERT INTO gaming_systems(name, price, gaming_systems_types_id, manufacturers_id)
+VALUES ('Nintendo Switch', 300, 2, 1);
+

@@ -1,30 +1,39 @@
 <?php
 
-// Step 1: Establish a DB connection
-$host = "303.itpwebdev.com";
-$user = "kimsooye_db_user";
-$password = "uscitp2021!";
-$db = "kimsooye_dvd_db";
+// // Step 1: Establish a DB connection
+// $host = "303.itpwebdev.com";
+// $user = "kimsooye_db_user";
+// $password = "uscitp2021!";
+// $db = "kimsooye_dvd_db2";
 
 
-$mysqli = new mysqli($host, $user, $password, $db);
+// $mysqli = new mysqli($host, $user, $password, $db);
+
+// import the config/config.php
+require "config/config.php";
+
+// DB Connection
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
 if ($mysqli->connect_errno) {
 	echo $mysqli->connect_error;
 	exit();
 }
 $mysqli->set_charset('utf8');
 
+// var_dump($_GET);
+
 // Step 2: Generate and Submit SQL Query
 $sql = "SELECT * FROM dvd_titles
-JOIN genres
+LEFT JOIN genres
 	ON genres.genre_id = dvd_titles.genre_id
-JOIN ratings
+LEFT JOIN ratings
 	ON ratings.rating_id = dvd_titles.rating_id
-JOIN labels
+LEFT JOIN labels
 	ON labels.label_id = dvd_titles.label_id
-JOIN formats
+LEFT JOIN formats
 	ON formats.format_id = dvd_titles.format_id
-JOIN sounds
+LEFT JOIN sounds
 	ON sounds.sound_id = dvd_titles.sound_id
 WHERE 1=1";
 
@@ -85,6 +94,8 @@ if (
 
 $sql = $sql . " ORDER BY dvd_titles.title;";
 
+// echo "<hr>" . $sql . "<hr>";
+
 $results = $mysqli->query($sql);
 
 if (!$results) {
@@ -132,6 +143,7 @@ $mysqli->close();
 				<table class="table table-hover table-responsive mt-4">
 					<thead>
 						<tr>
+							<th></th>
 							<th>DVD Title</th>
 							<th>Release Date</th>
 							<th>Genre</th>
@@ -148,14 +160,23 @@ $mysqli->close();
 							<td>Genre</td>
 							<td>Rating</td>
 						</tr> -->
-						<?php while ($row = $results->fetch_assoc()) : ?>
-							<tr>
-								<td><?php echo $row['title']; ?></td>
-								<td><?php echo $row['release_date']; ?></td>
-								<td><?php echo $row['genre']; ?></td>
-								<td><?php echo $row['rating']; ?></td>
-							</tr>
-						<?php endwhile; ?>
+<?php while ($row = $results->fetch_assoc()) : ?>
+	<tr>
+		<td>
+			<a onclick="return confirm('Are you sure you want to delete this song?');" href="delete.php?dvd_title_id=<?php echo $row['dvd_title_id']; ?>&title=<?php echo $row['title']; ?>" class="btn btn-outline-danger delete-btn">
+				Delete
+			</a>
+		</td>
+		<td>
+			<a href="details.php?dvd_title_id=<?php echo $row['dvd_title_id']?>">
+				<?php echo $row['title']; ?>
+			</a>
+		</td>
+		<td><?php echo $row['release_date']; ?></td>
+		<td><?php echo $row['genre']; ?></td>
+		<td><?php echo $row['rating']; ?></td>
+	</tr>
+<?php endwhile; ?>
 
 
 					</tbody>
