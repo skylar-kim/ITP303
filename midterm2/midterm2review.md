@@ -136,6 +136,7 @@ WHERE genre_id = 5;
 ## Deleting Existing Records (Delete)
 - `DELETE FROM`: Species *table* where the records are.
 - `WHERE`: Specifies record(s) to be deleted.
+- Note: when trying to delete, there may be an error where it says like foreign key constraint. to handle this, must go back to all the tables where they primary key was referenced as a foreign key, update those fields to null, and THEN finally delete the record from the database.
 ```sql
 DELETE FROM tracks
 WHERE track_id = 1;
@@ -233,6 +234,52 @@ SELECT album_id, MIN(milliseconds)
 FROM tracks
 GROUP BY album_id;
 ```
+
+# Lecture 16: Intro to PHP
+Lab: no lab
+Assignment 8: PHP Form Output
+Lecture Files: lect16-intro-php
+
+## PHP Syntax
+- all php code goes in between `<?php ?>` opening and closing bracket
+- end with semicolon
+- variables:
+	- start with dollar sign ($)
+	- start with letter or underscore
+	- case sensitive
+- printing out in php:
+	`echo` keyword
+
+## Superglobals
+- built-in super global variables
+- `$_SERVER`: Array with server and environment information
+- `$_GET`: Array of HTTP GET variables
+- `$_POST`: Array of HTTP POST variables
+
+## HTTP POST Method
+- Submits all form data in HTTP header
+- use `$_POST` associative array to access data
+- IMPORTANT: array key corresponds to `name` attribute value of the form element
+
+## HTTP GET Method
+- submits all form data through the URL
+- `http://example.com?key1=val1&key2=val2`
+- Use `$_GET` associative array to access data
+- IMPORTANT: array key corresponds to `name` attribute value of the form element
+	- so, if the form doesn't have `name` attribute anywhere, we get no data
+
+## POST vs GET
+- POST: parameters send via headers
+	- use POST method when:
+		- security is important
+		- sending large amounts of data
+		- usually used to insert/update data
+- GET: parameters are sent in the URL - visible to all users
+	- use GET method when:
+		- handling non-sensitive data
+		- sending small amount of data
+		- users can bookmark data
+		- usually used to retrieve data
 
 
 
