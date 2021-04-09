@@ -69,11 +69,39 @@ WHERE name = 'Frank Sinatra';
 SELECT * FROM artists
 WHERE name LIKE 'Frank Sinatra';
 ```
+- to use multiple WHERE clauses, use AND/OR
 
 ## LIKE Operator
 - used to search for patterns
 - often used with wildcards `%`
-![like wildcard](https://github.com/skylar-kim/ITP303/blob/main/midterm2/likewildcard.png)
+- ![like wildcard](https://github.com/skylar-kim/ITP303/blob/main/midterm2/likewildcard.png)
+
+## JOIN Clause
+- used to combine records from multiple tables, based on table relationships
+- `JOIN`: will select the intersection of A and B
+- `LEFT JOIN`: will select the intersection of A and B and ALSO A's records (may prevent null fields from not showing)
+```sql
+SELECT columns FROM left_table
+JOIN right_table
+ON left_table.foreign_key = right_table.primary_key;
+```
+
+## Column Name Conflicts
+- to resolve column name conflicts, prefix them with table names
+```sql
+SELECT tracks.album_id, albums.album_id
+FROM tracks, albums;
+```
+
+## Aliasing
+- used to temporarily rename columns or tables
+```sql
+SELECT tracks.name AS track_name, media_types.name AS media_name
+FROM tracks, media_types;
+```
+
+
+
 
 
 
