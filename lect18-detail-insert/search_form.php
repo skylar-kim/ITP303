@@ -75,12 +75,12 @@ $mysqli->close();
 				<div class="col-sm-9">
 					<select name="genre" id="genre-id" class="form-control">
 						<option value="" selected>-- All --</option>
-
-						<?php while ( $row = $results->fetch_assoc() ) : ?>
-							<option value="<?php echo $row['genre_id']; ?>">
-								<?php echo $row['name']; ?>
-							</option>
-						<?php endwhile; ?>
+<!-- IMPORTANT -->
+<?php while ( $row = $results->fetch_assoc() ) : ?>
+	<option value="<?php echo $row['genre_id']; ?>">
+		<?php echo $row['name']; ?>
+	</option>
+<?php endwhile; ?>
 
 					</select>
 				</div>
@@ -91,11 +91,12 @@ $mysqli->close();
 					<select name="media_type" id="media-type-id" class="form-control">
 						<option value="" selected>-- All --</option>
 
-						<?php while ( $row = $results_media_types->fetch_assoc() ) : ?>
-							<option value="<?php echo $row['media_type_id']; ?>">
-								<?php echo $row['name']; ?>
-							</option>
-						<?php endwhile; ?>
+<!-- IMPORTANT -->
+<?php while ( $row = $results_media_types->fetch_assoc() ) : ?>
+	<option value="<?php echo $row['media_type_id']; ?>">
+		<?php echo $row['name']; ?>
+	</option>
+<?php endwhile; ?>
 
 					</select>
 				</div>

@@ -349,6 +349,54 @@ In the HTML Doc:
 <?php endwhile; ?>
 ```
 
+# Lecture 18: CRUD Part 1
+Lab: none
+Assignment 9: DVD CRUD App
+Lecture Files: lect18-detail-insert
+
+## CRUD
+- Create, Read, Update, Delete
+- basic types of functionality implemented by databses
+- all web apps have at the very least CRUD functionalities
+
+## Passing Data in URL
+- pass data to next page by appending variables to the URL
+- URL format: `example.com?var_1=val1?var_2=val2`
+- access using `$_GET` form variable
+
+## lect18-detail-insert details:
+`index.php`: nothing important
+`search_form.php`: 
+- line 3 - 15: connects to DB
+- line 17 - 31: queries genres and media types from DB 
+- line 79 - 83: using php, prints out SQL query to the HTML options dropdown 
+- line 94 - 99: using php, prints out SQL query to the HTML options dropdown
+- close DB connection
+`search_results.php`:
+- connects to DB
+- generate sql statement
+- checks if optional fields were filled out
+- execute sql query
+- using php, print out sql query results in a table using php alternative syntax
+- close DB connection
+`add_form.php`: 
+- connect to DB
+- generate SQL statement to query genres, media_types, albums
+- using alternative php syntax, print out genres, media_types, albums in dropdown
+- close DB 
+`add_confirmation.php`:
+- check that required fields are filled out from `add_form.php`
+- connect to DB once all required fields are given
+- handle optional fields being filled out. if not filled out, set to null
+- escape special characters in sql statement
+- generate sql statement
+- query sql statement
+- check if the `$mysqli->affected_rows` is 1. using that results, display error or success message
+
+
+
+
+
 
 
 
