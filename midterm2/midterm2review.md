@@ -1,4 +1,7 @@
 # Lecture 13: Database Basics, Designing Databases
+Lab 7: Simple Film Database (on Blackboard)
+Assignment 7: SELECT SQL Statements (sqlfiles/assignment7.sql)
+Lecture Files: ?
 
 ## SQL vs NoSQL
 - SQL
@@ -35,6 +38,9 @@
 
 
 # Lecture 14: Intro to SQL, Retrieving Data from DB
+Lab: No Lab
+Assignment: No Assignment
+Lecture Files: sqlfiles/lect14.sql
 
 ## Retrieving Data (Read)
 - `SELECT`: specifies *columns* to retrieve from DB. Separate multiple columns with commas. * means "all columns"
@@ -101,6 +107,9 @@ FROM tracks, media_types;
 ```
 
 # Lecture 15: Data Manipulation in SQL
+Lab 8: More SQL Statements
+Assignment 8: PHP Form Output ( not really related )
+Lecture Files: sqlfiles/lect15.sql
 
 ## Adding New Records (Create)
 - `INSERT INTO`: Specifies *table* and *columns* to add data
