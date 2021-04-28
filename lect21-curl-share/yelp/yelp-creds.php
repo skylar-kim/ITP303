@@ -1,0 +1,4 @@
+<?php
+session_start();
+
+$api_key = "CDPSILayyLKFPF2_hFPowvVZq4J32jAEUK8nEFFSJz6_iG1bwXkVXhojgxKgyh2uZTPpDwNFDytcpHo3XAaje6nLWZejWKqx2epikPl8Vy5_tmN2ZYiGn2bmUeCIYHYx";
