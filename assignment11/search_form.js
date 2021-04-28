@@ -50,7 +50,23 @@ $(document).ready(function () {
 		for (let apod of result) {
 			let apodHTML = ``;
 			if (apod.media_type == "video") {
-				console.log("media type is video")
+				console.log("media type is video");
+
+				apodHTML = `<div class="embed-responsive embed-responsive-16by9">
+			  <iframe class="embed-responsive-item" src="${apod.url}" allowfullscreen></iframe>
+			</div>
+
+			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="row">
+					<div class="col-8 col-sm-8 col-md-8 col-lg-8"><h2 class="picture-title">${apod.title}</h2></div>
+
+					<div class="col-2 col-sm-2 col-md-2 col-lg-4"><button class="btn btn-light">Favorite</button></div>
+				</div>
+				
+				<h5 class="picture-title">${apod.date}</h5>
+				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
+				<p class="picture-title">${apod.explanation}</p>
+			</div>`
 			}
 			else if (apod.media_type == "image") {
 				console.log("media type is image")
@@ -66,9 +82,6 @@ $(document).ready(function () {
 
 					<div class="col-2 col-sm-2 col-md-2 col-lg-4"><button class="btn btn-light">Favorite</button></div>
 				</div>
-				
-				
-
 				
 				<h5 class="picture-title">${apod.date}</h5>
 				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>

@@ -44,42 +44,6 @@
 </head>
 <body>
 
-	<!-- <div class="top-half">
-        
-
-	    <div class="sticky-top hidden-spacer"> </div>
-
-        <div class="form-div">
-			<div class="container register-container my-2 py-4 mx-auto mr-auto">
-				<div class="row justify-content-center">
-					<h1 class="title-style col-12 col-sm-12 col-md-12 col-lg-12">ASTRA</h1>
-
-					<div class="container">
-
-						<form id="search-form" action="" method="GET">
-
-							
-							<label for="search-date" class="col-sm-12 text-white text-center form-label-style description-style">Search by Date:</label>
-							<div class="form-group row justify-content-center">
-								<div class="col-sm-12 col-md-10 col-lg-8">
-									<input type="date" class="form-control" id="search-date" name="username">
-								</div>
-							</div>
-
-							<div class="row justify-content-center">
-								<button type="submit" class="btn btn-outline-light btn-lg">Search</button>
-							</div>
-						</form>
-
-	
-
-					</div>
-
-
-				</div>
-			</div>
-		</div>
-	</div> -->
 
 	<?php include 'navbar.php'; ?>
 	<div class="container">
@@ -105,23 +69,20 @@
 					</form>
 
 
-
 				</div>
-
 
 			</div>
 		</div>
 
-		
-		
 	</div>
 
+
 	<div class="container">
-		<div class="embed-responsive">
-			  <iframe width="560" height="315" src="https://www.youtube.com/embed/B1R3dTdcpSU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+		<div class="row justify-content-center search-result search-result-hide">
+			<div class="embed-responsive embed-responsive-16by9">
+			  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/B1R3dTdcpSU" allowfullscreen></iframe>
 			</div>
-		<div class="row justify-content-center search-result search-result-show">
-			
 
 			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 				<img src="https://apod.nasa.gov/apod/image/2104/ant_hubble_1072.jpg" class="img-fluid" alt="Planetary Nebula Mz3: The Ant Nebula">
@@ -134,12 +95,9 @@
 					<div class="col-2 col-sm-2 col-md-2 col-lg-4"><button class="btn btn-light">Favorite</button></div>
 				</div>
 				
-				
-
-				
 				<h5 class="picture-title">2021-04-25</h5>
 				<h5 class="picture-title">Copyright: </h5>
-				<p class="picture-title">Why isn't this ant a big sphere?  Planetary nebula Mz3 is being cast off by a star similar to our Sun that is, surely, round.  Why then would the gas that is streaming away create an ant-shaped nebula that is distinctly not round?  Clues might include the high 1000-kilometer per second speed of the expelled gas, the light-year long length of the structure, and the magnetism of the star featured here at the nebula's center.  One possible answer is that Mz3 is hiding a second, dimmer star that orbits close in to the bright star.  A competing hypothesis holds that the central star's own spin and magnetic field are channeling the gas.  Since the central star appears to be so similar to our own Sun, astronomers hope that increased understanding of the history of this giant space ant can provide useful insight into the likely future of our own Sun and Earth.</p>
+				<p class="picture-title"></p>
 			</div>
 		</div>
 	</div>
