@@ -1,3 +1,89 @@
+<?php 
+
+require 'config/config.php';
+
+// If user is logged in, don't show them this page. Redirect them somewhere else.
+// if not logged in, do the usual thing
+if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
+
+
+	// Check if a username and password has been submitted via POST method.
+	// will not go into if statement if user simply got to the login page.
+	// only if username and password was actually submitted
+	if ( isset($_POST['username']) && isset($_POST['password']) ) {
+
+		// check if username and password has been filled out or not
+		if ( empty($_POST['username']) || empty($_POST['password']) ) {
+
+			$error = "Please enter username and password.";
+
+		}
+		else {
+			// This means user has filled out something for username and password.
+			// So let's check if this username/password combo exists in the DB and that it is correct!
+			$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+			if($mysqli->connect_errno) {
+				echo $mysqli->connect_error;
+				exit();
+			}
+
+			// hash whatever user typed in for the password field and then compare that with the hashed pw in the db
+			$passwordInput = hash("sha256", $_POST["password"]);
+
+
+			// $sql = "SELECT * FROM users
+			// 			WHERE username = '" . $_POST['username'] . "' AND password = '" . $passwordInput . "';";
+
+			// make prepared statement
+			$sqlLogin = $mysqli->prepare("SELECT * FROM users WHERE username = ? AND password = ?;");
+
+			// bind parameters
+			$sqlLogin->bind_param("ss", $_POST["username"], $passwordInput);
+
+			// execute query
+			$sqlLogin->execute();
+
+			// store result from query
+			$sqlLogin->store_result();
+
+
+			if(!$sqlLogin) {
+				echo $mysqli->error;
+				exit();
+			}
+
+			// if we get one match, that means this username/pw combo exists!
+			// num_rows tells us how many results we obtained from the above sql query
+			if($sqlLogin->num_rows > 0) {
+				// log in success
+				// set session variables to remember the username
+				$_SESSION["username"] = $_POST["username"];
+				$_SESSION["logged_in"] = true;
+
+				// redirect logged in user to the home page
+				header("Location: home.php");
+			
+			}
+			else {
+				$error = "Invalid username or password.";
+			}
+		} 
+	}
+}
+else {
+	// user is already logged in, so redirect them to another page
+	header("Location:  home.php");
+}
+
+
+
+
+
+
+ ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,35 +106,47 @@
 		<div class="sticky-top hidden-spacer"> </div>
 
 		<div class="form-div">
-			<div class="container register-container my-2 py-4 mx-auto mr-auto">
+			<div class="container register-container my-2 py-4 mr-auto">
 				<div class="row justify-content-center">
 					<h1 class="description-style col-12 col-sm-12 col-md-12 col-lg-12">Login</h1>
 
-					<div class="container ">
+					<div class="container">
 
-						<form action="" method="POST">
+						<form action="login.php" method="POST">
+
+							<div class="form-group row justify-content-center">
+								<div class="font-italic col-sm-12 col-md-10 col-lg-8 text-white text-center">
+									<?php if (  isset($error) && !empty($error) ) {
+										echo $error;
+									}
+									?>
+								</div>
+							</div>
 
 							<!-- Username -->
-							<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username:</label>
+							
 							<div class="form-group row justify-content-center">
-								<div class="col-sm-12 col-md-10 col-lg-8">
+								<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username:</label>
+								<div class="col-sm-12 col-md-8 col-lg-6">
 									<input type="text" class="form-control" id="username-id" name="username">
 								</div>
 							</div> <!-- .form-group -->
 
 							<!-- password -->
-							<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password:</label>
+							
 							<div class="form-group row justify-content-center">
-								<div class="col-sm-12 col-md-10 col-lg-8">
+								<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password:</label>
+								<div class="col-sm-12 col-md-8 col-lg-6">
 									<input type="text" class="form-control" id="password-id" name="password">
 								</div>
 							</div> <!-- .form-group -->
 							
+							<div class="row justify-content-center">
+								<button type="submit" class="btn btn-outline-light btn-lg">Login</button>
+							</div> <!-- .row -->
 						</form>
 
-						<div class="row justify-content-center">
-							<button type="button" class="btn btn-outline-light btn-lg">Login</button>
-						</div> <!-- .row -->
+						
 
 					</div> <!-- .container -->
 

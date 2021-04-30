@@ -2,12 +2,12 @@
 	height: 100vh;
     min-height: 400px;
     background-size: cover;
-    background-image: url("../images/nebula.jpg");
+    background-image: url("../images/nebuladark.jpg");
 }
 
 .register-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 40px;
+    /*background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 40px;*/
 }
 
 .hidden-spacer {

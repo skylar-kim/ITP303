@@ -8,6 +8,8 @@ $(document).ready(function () {
 	// Search Result Stuff
 	const $searchResult = $(".search-result");
 
+	
+
 	// Event Handlers
 	$searchForm.on("submit", function(e) {
 		e.preventDefault();
@@ -21,6 +23,14 @@ $(document).ready(function () {
 
 		getAjax(searchDate);
 	})
+
+	// Listening to favorites button
+	$(".search-result").on("click", ".favorite-button", function(event) {
+		event.preventDefault();
+
+		console.log("favorites button clicked");
+	})
+
 
 	function getAjax(searchDate) {
 		console.log(searchDate);
@@ -52,36 +62,40 @@ $(document).ready(function () {
 			if (apod.media_type == "video") {
 				console.log("media type is video");
 
-				apodHTML = `<div class="embed-responsive embed-responsive-16by9">
-			  <iframe class="embed-responsive-item" src="${apod.url}" allowfullscreen></iframe>
+			apodHTML = 
+			`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
+				
+				<div class="embed-responsive embed-responsive-16by9">
+			   		<iframe class="embed-responsive-item" src="${apod.url}" allowfullscreen></iframe>
+				</div>
 			</div>
 
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="row">
-					<div class="col-8 col-sm-8 col-md-8 col-lg-8"><h2 class="picture-title">${apod.title}</h2></div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+				
+				<h2 class="picture-title">${apod.title}</h2>
 
-					<div class="col-2 col-sm-2 col-md-2 col-lg-4"><button class="btn btn-light">Favorite</button></div>
-				</div>
+				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
 				
 				<h5 class="picture-title">${apod.date}</h5>
 				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
 				<p class="picture-title">${apod.explanation}</p>
-			</div>`
+			</div>`;
 			}
 			else if (apod.media_type == "image") {
 				console.log("media type is image")
 
 				apodHTML = 
-				`<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<img src="${apod.url}" class="img-fluid" alt="${apod.title}">
+				`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
+				
+				<a href="${apod.url}" data-lightbox="${apod.title}" data-title="${apod.title}" >
+					<img src="${apod.url}" class="img-fluid" alt="${apod.title}">
+				</a>
 			</div>
 
-			<div class="col-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="row">
-					<div class="col-8 col-sm-8 col-md-8 col-lg-8"><h2 class="picture-title">${apod.title}</h2></div>
-
-					<div class="col-2 col-sm-2 col-md-2 col-lg-4"><button class="btn btn-light">Favorite</button></div>
-				</div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+				
+				<h2 class="picture-title">${apod.title}</h2>
+				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
 				
 				<h5 class="picture-title">${apod.date}</h5>
 				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
@@ -93,9 +107,10 @@ $(document).ready(function () {
 			$searchResult.append(apodHTML);
 		}
 
-		$searchFormContainer.removeClass("search-form-container-show");
-		$searchFormContainer.addClass("search-form-container-hide");
-		$searchResult.removeClass("search-result-hide");
-		$searchResult.addClass("search-result-show");
+		$searchFormContainer.removeClass("d-block");
+		$searchFormContainer.addClass("d-none");
+
+		$searchResult.removeClass("d-none");
+		$searchResult.addClass("d-flex");
 	}
 })

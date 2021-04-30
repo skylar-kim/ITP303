@@ -1,3 +1,7 @@
+<?php 
+session_start();
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +14,23 @@
 	<!-- RESPONSIVENESS -->
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<style type="text/css">
+		/*@keyframes slideInFromBottom {
+			0% {
+				transform: translateY(800%);
+				
+			}
+
+			100% {
+				transform: translateY(0);
+
+			}
+		}
+
+		.slide-up {
+			animation: 2s ease-out 0s 1 slideInFromBottom;
+		}*/
+	</style>
 </head>
 <body>
 	<div class="top-half">
@@ -20,14 +41,15 @@
 
         <div class="wrap">
             <div class="container my-5 py-5 mx-auto mr-auto">
-                <div class="row justify-content-center my-3">
-                    <h1 class="title-style col-12 col-sm-12 col-md-12 col-lg-12">A S T R A</h1>
-                    <h2 class="description-style col-12 col-sm-12 col-md-12 col-lg-12">discover your next astronomy photo of the day</h2>
-                    
-                        
-                    <button class="btn btn-dark btn-lg search-button-style"><a href="search_form.php" class="link-light">search for the stars</a></button>
-                    
-                    
+                <div class="row justify-content-center my-3 slide-up">
+                	
+                		<h1 class="title-style col-12 col-sm-12 col-md-12 col-lg-12">A S T R A</h1>
+	                    <h2 class="description-style col-12 col-sm-12 col-md-12 col-lg-12">discover your next astronomy photo of the day</h2>
+	                    
+	                        
+	                    <a href="search_form.php" class="btn btn-outline-light btn-lg">search for the stars</a>
+                	
+ 
                 </div>
             </div>
         </div>

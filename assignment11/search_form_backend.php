@@ -1,5 +1,6 @@
 <?php 
-require("nasa-creds.php");
+require("config/nasa-creds.php");
+require 'config/config.php';
 
 // 1. Create Data
 $data = array (
@@ -25,6 +26,7 @@ curl_setopt_array($curl, array(
 // 4. Parse Response
 $response = curl_exec($curl);
 
+// get the response 
 
 
 // 5. Filter Response (only get what you need)
