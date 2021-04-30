@@ -12,7 +12,7 @@ if ($mysqli->connect_errno) {
 
 // $_GET["searchDate"] = "2020-01-01";
 
-$sqlDate = $mysqldate = date('Y-m-d', strtotime($_GET["searchDate"]));
+$mysqldate = date('Y-m-d', strtotime($_GET["searchDate"]));
 
 $sqlSelect = $mysqli->prepare("SELECT * FROM photos WHERE photo_date = ?;");
 
@@ -47,7 +47,12 @@ if ($sqlSelect->num_rows > 0) {
 	$jsonResponse = array();
 	$jsonResponse[] = array("url" => $url, "title" => $title, "date" => $photoDate, "media_type" => $mediaType, "copyright" => $copyright, "explanation" => $explanation);
 
-	
+	// need to close statements
+
+	// close DB connection
+	$mysqli->close();
+
+	// send back JSON data
 	echo json_encode($jsonResponse);
 
 
@@ -137,6 +142,11 @@ else {
 	}
 
 	// echo "here";
+
+	// need to close statements
+
+	// close DB connection
+	$mysqli->close();
 
 	// 5. Filter Response (only get what you need)
 	// actually I need everything from the JSON response so just
