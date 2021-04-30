@@ -29,6 +29,8 @@ $(document).ready(function () {
 		event.preventDefault();
 
 		console.log("favorites button clicked");
+
+
 	})
 
 
@@ -76,7 +78,7 @@ $(document).ready(function () {
 
 				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
 				
-				<h5 class="picture-title">${apod.date}</h5>
+				<h5 id="photo-date" class="picture-title">${apod.date}</h5>
 				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
 				<p class="picture-title">${apod.explanation}</p>
 			</div>`;
@@ -97,7 +99,7 @@ $(document).ready(function () {
 				<h2 class="picture-title">${apod.title}</h2>
 				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
 				
-				<h5 class="picture-title">${apod.date}</h5>
+				<h5 id="photo-date" class="picture-title">${apod.date}</h5>
 				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
 				<p class="picture-title">${apod.explanation}</p>
 			</div>`;

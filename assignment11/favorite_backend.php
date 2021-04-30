@@ -8,7 +8,7 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 	echo $username;
 
 	// get the photo date of the photo user just favorited
-	$mysqldate = date('Y-m-d', strtotime($_GET["favDate"]));
+	$mysqldate = date('Y-m-d', strtotime($_POST["favDate"]));
 
 	
 
@@ -54,6 +54,10 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 	// if num rows > 0: don't add favorites again
 	if ($sqlCheckFav->num_rows > 0) {
 		// send some json fail message?
+		$response = array("message" => "readding favorites");
+
+		header('Content-Type: application/json');
+		echo json_encode($response);
 	}
 	else {
 		// execute SQL INSERT statement to insert user_id and photo_id pair
@@ -68,23 +72,26 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 		if (!$sqlInsert) {
 			exit();
 		}
+		else {
+			$response = array("message" => "success");
+
+			header('Content-Type: application/json');
+			echo json_encode($response);
+		}
 
 		// return successful json message
 	}
 	
-
-	
-
-	
-
-
 	
 }
 
 // user session not active
 // direct to login page
 else {
-	header("Location:  login.php");
+	// header("Location:  login.php");
+	$response = array("message" => "user session not active");
+
+	echo json_encode($response);
 }
 
 

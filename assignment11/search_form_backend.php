@@ -10,19 +10,28 @@ if ($mysqli->connect_errno) {
 	exit();
 }
 
-// $_GET["searchDate"] = "2020-01-01";
-
+$_GET["searchDate"] = "2020-01-01";
+// echo $_GET["searchDate"];
 $mysqldate = date('Y-m-d', strtotime($_GET["searchDate"]));
-
+// echo $mysqldate;
 $sqlSelect = $mysqli->prepare("SELECT * FROM photos WHERE photo_date = ?;");
 
-$sqlSelect->bind_param("s", $sqlDate);
+$sqlSelect->bind_param("s", $mysqldate);
 
 $sqlSelect->execute();
 
-$sqlSelect->store_result();
+if (!$sqlSelect) {
+	echo $mysqli->error();
+	exit();
+}
 
-if ($sqlSelect->num_rows > 0) {
+$result = $sqlSelect->get_result();
+
+
+
+// echo "<hr>" . $result->num_rows;
+
+if ($result->num_rows == 1) {
 	// photo data is already cached in DB
 	$sqlSelect->execute();
 
