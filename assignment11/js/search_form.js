@@ -45,7 +45,7 @@ $(document).ready(function () {
 		.done(function(result) {
 			console.log(result);
 
-			displayGetResult(result);
+			displayGetResult(JSON.parse(result));
 		})
 		.fail(function() {
 			console.log("fail");
