@@ -30,9 +30,12 @@ $(document).ready(function () {
 
 		console.log("favorites button clicked");
 
-
+		let favDate = $("#photo-date").html();
+		console.log(favDate);
+		postAddFavorite(favDate);
 	})
 
+	// ajax calls
 
 	function getAjax(searchDate) {
 		console.log(searchDate);
@@ -45,13 +48,34 @@ $(document).ready(function () {
 			}
 		})
 		.done(function(result) {
-			console.log(result);
+			// console.log(result);
 
 			displayGetResult(JSON.parse(result));
 		})
 		.fail(function() {
 			console.log("fail");
 		});
+	}
+
+	function postAddFavorite(favDate) {
+		console.log(favDate);
+
+		$.ajax({
+			method: "POST",
+			url: "favorite_backend.php",
+			data: {
+				favDate: favDate
+			}
+		})
+		.done(function(result) {
+			console.log(result);
+
+			displayFavoriteResponse(result);
+		})
+	}
+
+	function displayFavoriteResponse(result) {
+		console.log(result);
 	}
 
 	function displayGetResult(result) {
