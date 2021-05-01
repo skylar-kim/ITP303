@@ -75,7 +75,13 @@ $(document).ready(function () {
 	}
 
 	function displayFavoriteResponse(result) {
-		console.log(result);
+		
+		if (result.message == "success") {
+			window.location.href = "search_form.php";
+		}
+		else {
+			alert(result.message);
+		}
 	}
 
 	function displayGetResult(result) {
@@ -102,7 +108,7 @@ $(document).ready(function () {
 
 				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
 				
-				<h5 id="photo-date" class="picture-title">${apod.date}</h5>
+				<h5 id="photo-date" class="picture-title py-2">${apod.date}</h5>
 				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
 				<p class="picture-title">${apod.explanation}</p>
 			</div>`;
@@ -113,20 +119,20 @@ $(document).ready(function () {
 				apodHTML = 
 				`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
 				
-				<a href="${apod.url}" data-lightbox="${apod.title}" data-title="${apod.title}" >
-					<img src="${apod.url}" class="img-fluid" alt="${apod.title}">
-				</a>
-			</div>
+					<a href="${apod.url}" data-lightbox="${apod.title}" data-title="${apod.title}" >
+						<img src="${apod.url}" class="img-fluid" alt="${apod.title}">
+					</a>
+				</div>
 
-			<div class="col-12 col-sm-12 col-md-12 col-lg-5">
-				
-				<h2 class="picture-title">${apod.title}</h2>
-				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
-				
-				<h5 id="photo-date" class="picture-title">${apod.date}</h5>
-				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
-				<p class="picture-title">${apod.explanation}</p>
-			</div>`;
+				<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+					
+					<h2 class="picture-title">${apod.title}</h2>
+					<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
+					
+					<h5 id="photo-date" class="picture-title py-2">${apod.date}</h5>
+					<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
+					<p class="picture-title">${apod.explanation}</p>
+				</div>`;
 			}
 			
 

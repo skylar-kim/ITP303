@@ -89,7 +89,7 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 		// return successful json message
 	}
 	
-	
+	$mysqli->close();
 }
 
 // user session not active

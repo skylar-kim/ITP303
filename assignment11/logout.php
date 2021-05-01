@@ -39,7 +39,7 @@ session_destroy();
 		<div class="row justify-content-center">
 			<h1 class="col-12">Logout</h1>
 			<div class="col-12">You are now logged out.</div>
-			<div class="col-12 mt-3">You can go to <a href="home.php">home page</a> or <a href="login.php">log in</a> again.</div>
+			<div class="col-12 mt-3">You can go to <a href="index.php">home page</a> or <a href="login.php">log in</a> again.</div>
 		</div>
 	</div>
 

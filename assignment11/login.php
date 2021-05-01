@@ -62,7 +62,7 @@ if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
 				$_SESSION["logged_in"] = true;
 
 				// redirect logged in user to the home page
-				header("Location: home.php");
+				header("Location: index.php");
 			
 			}
 			else {
@@ -73,7 +73,7 @@ if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
 }
 else {
 	// user is already logged in, so redirect them to another page
-	header("Location:  home.php");
+	header("Location:  index.php");
 }
 
 

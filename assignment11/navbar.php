@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark">
-	<a class="navbar-brand navbar-text-style" href="home.php">ASTRA</a>
+	<a class="navbar-brand navbar-text-style" href="index.php">ASTRA</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -19,7 +19,7 @@
 
 			<?php else: ?>
 				<li class="nav-item">
-					<a class="nav-link navbar-text-style">Hello <?php echo $_SESSION["username"]; ?></a>
+					<a class="nav-link navbar-text-style" href="account.php">Hello <?php echo $_SESSION["username"]; ?></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link navbar-text-style" href="logout.php">logout</a>

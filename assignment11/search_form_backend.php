@@ -10,7 +10,7 @@ if ($mysqli->connect_errno) {
 	exit();
 }
 
-$_GET["searchDate"] = "2020-01-01";
+// $_GET["searchDate"] = "2020-01-01";
 // echo $_GET["searchDate"];
 $mysqldate = date('Y-m-d', strtotime($_GET["searchDate"]));
 // echo $mysqldate;
