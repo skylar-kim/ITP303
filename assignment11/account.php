@@ -28,33 +28,9 @@ else {
 	<script src="https://unpkg.com/scrollreveal"></script>
 	<!-- CUSTOM SCRIPT -->
 	<script type="text/javascript" src="js/account.js"></script>
-
-	<style type="text/css">
-		body {
-			background-color: black;
-			font-family: 'Karla', sans-serif;
-			color: white;
-
-		}
-
-		@keyframes zoomIn {
-		    0% {
-		        transform: scale(0);
-		        
-		    }
-
-		    100% {
-		        transform: scale(1);
-
-		    }
-		}
-
-		.header-animation {
-		    animation: 2s ease-out 0s 1 zoomIn;
-		}
-
-
-	</style>
+	<!-- CUSTOM STYLE SHEET -->
+	<link rel="stylesheet" type="text/css" href="css/account.css">
+	
 </head>
 <body>
 

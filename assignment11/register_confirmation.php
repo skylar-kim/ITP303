@@ -86,46 +86,8 @@ else {
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!-- JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="css/register.css">
-	<style type="text/css">
-
-		body {
-			background-color: black;
-			font-family: 'Karla', sans-serif;
-		}
-
-		@keyframes slideInFromBottom {
-			0% {
-				transform: translateY(800%);
-				
-			}
-
-			100% {
-				transform: translateY(0);
-
-			}
-		}
-
-		.register-error {
-			color: white;
-			text-align: center;
-			font-size: 3rem;
-			padding-top: 0.5rem;
-			padding-bottom: 0.5rem;
-			margin-top: 5rem;
-		}
-
-		.register-success {
-			color: white;
-			text-align: center;
-			font-size: 3rem;
-			padding-top: 0.5rem;
-			padding-bottom: 0.5rem;
-			margin-top: 5rem;
-
-			animation: 2.5s ease-out 0s 1 slideInFromBottom;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/register_confirmation.css">
+	
 </head>
 <body>
 

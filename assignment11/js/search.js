@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 		$.ajax({
 			method: "GET",
-			url: "search_form_backend.php",
+			url: "backend/search_form_backend.php",
 			data: {
 				searchDate: searchDate
 			}
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
 		$.ajax({
 			method: "POST",
-			url: "favorite_backend.php",
+			url: "backend/favorite_backend.php",
 			data: {
 				favDate: favDate
 			}
@@ -77,7 +77,7 @@ $(document).ready(function () {
 	function displayFavoriteResponse(result) {
 		
 		if (result.message == "success") {
-			window.location.href = "search_form.php";
+			window.location.href = "search.php";
 		}
 		else {
 			alert(result.message);

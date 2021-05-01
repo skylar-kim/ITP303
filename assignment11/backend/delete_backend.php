@@ -1,6 +1,6 @@
 <?php 
 
-require "config/config.php";
+require "../config/config.php";
 
 // make sure user session is active
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {

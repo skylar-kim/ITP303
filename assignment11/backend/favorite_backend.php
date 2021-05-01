@@ -1,5 +1,5 @@
 <?php 
-require("config/config.php");
+require("../config/config.php");
 
 // user session active
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {

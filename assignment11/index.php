@@ -13,24 +13,8 @@ session_start();
 	<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
 	<!-- RESPONSIVENESS -->
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/home.css">
-	<style type="text/css">
-		/*@keyframes slideInFromBottom {
-			0% {
-				transform: translateY(800%);
-				
-			}
-
-			100% {
-				transform: translateY(0);
-
-			}
-		}
-
-		.slide-up {
-			animation: 2s ease-out 0s 1 slideInFromBottom;
-		}*/
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	
 </head>
 <body>
 	<div class="top-half">
@@ -47,7 +31,7 @@ session_start();
 	                    <h2 class="description-style col-12 col-sm-12 col-md-12 col-lg-12">discover your next astronomy photo of the day</h2>
 	                    
 	                        
-	                    <a href="search_form.php" class="btn btn-outline-light btn-lg">search for the stars</a>
+	                    <a href="search.php" class="btn btn-outline-light btn-lg">search for the stars</a>
                 	
  
                 </div>

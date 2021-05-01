@@ -1,5 +1,5 @@
 <?php 
-require("config/nasa-creds.php");
+require("../config/nasa-creds.php");
 // require 'config/config.php';
 
 // Check database to see if the search result is already in the DB

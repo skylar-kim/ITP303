@@ -30,7 +30,7 @@
 
 
 			<li class="nav-item">
-				<a class="nav-link navbar-text-style" href="search_form.php">search</a>
+				<a class="nav-link navbar-text-style" href="search.php">search</a>
 			</li>
 		</ul>
 	</div>

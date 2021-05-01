@@ -24,7 +24,7 @@ $(document).ready(function () {
 	function getFavorites() {
 		$.ajax({
 			method: "GET",
-			url: "account_backend.php"
+			url: "backend/account_backend.php"
 		})
 		.done(function(result) {
 			displayGetFavorites(result);

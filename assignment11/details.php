@@ -68,34 +68,8 @@ else {
 	<link href="lightbox2-dev/src/css/lightbox.css" rel="stylesheet" />
 	<!-- Custom Scripts -->
 	<script type="text/javascript" src="js/details.js"></script>
-	<!-- <link rel="stylesheet" type="text/css" href="css/home.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/details.css">
 
-	<style type="text/css">
-		body {
-			background-color: black;
-			font-family: 'Karla', sans-serif;
-		}
-
-		.picture-title {
-			color: white;
-		}
-
-		.search-form-container-hide {
-			display: none;
-		}
-
-		.search-form-container-show {
-			display: block;
-		}
-
-		.search-result-hide {
-			display: none;
-		}
-
-		.search-result-show {
-			display: block;
-		}
-	</style>
 </head>
 <body>
 	<?php include 'navbar.php'; ?>

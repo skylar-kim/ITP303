@@ -18,7 +18,7 @@ $(document).ready(function() {
 	function postDelete(photo_id) {
 		$.ajax({
 			method: "POST",
-			url: "delete_backend.php",
+			url: "backend/delete_backend.php",
 			data: {
 				photo_id: photo_id
 			}

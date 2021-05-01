@@ -24,13 +24,7 @@ session_destroy();
 	<!-- JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	
-	<style type="text/css">
-		body {
-			background-color: black;
-			font-family: 'Karla', sans-serif;
-			color: white;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/logout.css">
 </head>
 <body>
 
