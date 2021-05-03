@@ -18,7 +18,6 @@ session_start();
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<!-- LIGHTBOX -->
 	<link href="lightbox2-dev/src/css/lightbox.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="css/home.css">
 	<!-- Custom Scripts -->
 	<script type="text/javascript" src="js/search.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/search.css">

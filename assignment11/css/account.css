@@ -5,6 +5,10 @@ body {
 
 }
 
+video {
+    max-width: 100%;
+}
+
 @keyframes zoomIn {
     0% {
         transform: scale(0);
@@ -19,4 +23,8 @@ body {
 
 .header-animation {
     animation: 2s ease-out 0s 1 zoomIn;
+}
+
+.card-transparent {
+    background-color: transparent;
 }

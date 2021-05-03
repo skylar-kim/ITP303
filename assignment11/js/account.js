@@ -45,15 +45,28 @@ $(document).ready(function () {
 			let cardHTML = ``;
 			if (fav.media_type == "image") {
 				cardHTML = 
-				`<div class="col-12 col-sm-12 col-md-6 col-lg-4 my-4 card-div" >
-					<div class="card">
-						<a href=""><img src="${fav.url}" class="img-fluid" alt="${fav.title}"></a>
-						<span class="photo-id d-none">${fav.photo_id}</span>
-					</div>
-				</div>`;
+					`<div class="col-12 col-sm-12 col-md-6 col-lg-4 my-4 card-div" >
+						<div class="card card-transparent">
+							<a href=""><img src="${fav.url}" class="img-fluid" alt="${fav.title}"></a>
+							<span class="photo-id d-none">${fav.photo_id}</span>
+							<div class="card-body text-center">
+								<a href="#" class="btn btn-outline-light">See Details</a>
+							</div>
+						</div>
+					</div>`;
 			}
 			else if (fav.media_type == "video") {
-
+				cardHTML =
+					`<div class="col-12 col-sm-12 col-md-6 col-lg-4 my-4 card-div" >
+						<div class="card card-transparent">
+							<iframe class="embed-responsive-item" src="${fav.url}" allowfullscreen></iframe>
+							<span class="photo-id d-none">${fav.photo_id}</span>
+							<div class="card-body text-center">
+								<a href="#" class="btn btn-outline-light">See Details</a>
+							</div>
+						</div>
+						
+					</div>`;
 			}
 
 			$cardRow.append(cardHTML);
