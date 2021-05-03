@@ -7,8 +7,7 @@ require 'config/config.php';
 // server side validation
 if ( !isset($_POST['email']) || empty($_POST['email'])
 	|| !isset($_POST['username']) || empty($_POST['username'])
-	|| !isset($_POST['password']) || empty($_POST['password']) 
-	|| !isset($_POST['birthday']) || empty($_POST['birthday']) ) {
+	|| !isset($_POST['password']) || empty($_POST['password'])) {
 	$error = "Please fill out all required fields.";
 }
 else {
@@ -44,17 +43,16 @@ else {
 		//$date = mysql_real_escape_string($_POST["birthday"]);
 
 		//$birthday = date("Y-m-d", strtotime(str_replace('-', '/', $date)));
-		$mysqldate = date('Y-m-d', strtotime($_POST["birthday"]));
+//		$mysqldate = date('Y-m-d', strtotime($_POST["birthday"]));
 
 		//echo $mysqldate;
 
-		$sqlInsert = $mysqli->prepare("INSERT INTO users(username, email, password, birthday) VALUES(?, ?, ?, ?)");
+		$sqlInsert = $mysqli->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
 
-		$sqlInsert->bind_param("ssss",
+		$sqlInsert->bind_param("sss",
 			$_POST['username'],
 			$_POST['email'],
-			$password,
-			$mysqldate);
+			$password);
 
 		$executedInsert = $sqlInsert->execute();
 
