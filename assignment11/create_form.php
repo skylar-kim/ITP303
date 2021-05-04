@@ -3,7 +3,7 @@ session_start();
 
 // this page is an admin-only accessible page
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true 
-	&& isset($_SESSION["username"]) && $_SESSION["username"] == "skylarkim") {
+	&& isset($_SESSION["username"]) && $_SESSION["username"] == "admin") {
 	
 }
 else {
