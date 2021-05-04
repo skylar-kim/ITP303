@@ -1,7 +1,5 @@
-let sr = ScrollReveal();
-
 $(document).ready(function () {
-	ScrollReveal({reset: true});
+	ScrollReveal({reset: false});
 
 	const $cardRow = $(".card-row");
 
@@ -36,7 +34,6 @@ $(document).ready(function () {
 
 	function displayGetFavorites(result) {
 		console.log(result);
-		// console.log(result[0].photo_id)
 
 		$cardRow.html("");
 
@@ -77,28 +74,3 @@ $(document).ready(function () {
 	}
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
