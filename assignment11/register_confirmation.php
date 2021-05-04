@@ -1,75 +1,81 @@
 <?php
 
 require 'config/config.php';
+/*
+ * PURPOSE: Registers users to the DB. If a logged in user is trying to reach this page, redirect back to home page.
+ * If all required fields are not filled out, display error message.
+ * If all fields are filled out and there is no user session active, then check if the username or email is already in
+ * use. If they are already in use, display error message.
+ * If all conditions are met, then register the user to the DB and display welcome message.
+ */
 
-//var_dump($_POST);
+// If user is logged in, don't show them this page. Redirect them somewhere else.
+// if not logged in, do the usual thing
+if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
+    // server side validation
+    if ( !isset($_POST['email']) || empty($_POST['email'])
+        || !isset($_POST['username']) || empty($_POST['username'])
+        || !isset($_POST['password']) || empty($_POST['password'])) {
+        $error = "Please fill out all required fields.";
+    }
+    else {
+        // Connect to the DB and insert a new user to the users table
+        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-// server side validation
-if ( !isset($_POST['email']) || empty($_POST['email'])
-	|| !isset($_POST['username']) || empty($_POST['username'])
-	|| !isset($_POST['password']) || empty($_POST['password'])) {
-	$error = "Please fill out all required fields.";
+        if ($mysqli->connect_errno) {
+            exit();
+        }
+
+        // Before creating a new user, check the users table to see if the user and/or email address already exists.
+        $sql_registered = $mysqli->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
+
+        $sql_registered->bind_param("ss", $_POST["username"], $_POST["email"]);
+
+        $sql_registered->execute();
+
+        $sql_registered->store_result();
+
+        // If we get even ONE result back from this SELECT query, it means username OR email already exists in the database!
+        if($sql_registered->num_rows > 0) {
+            $error = "Username or email address has already been taken. Please choose another one.";
+        }
+        else {
+            // SQL to insert - use prepared statements
+            $password = hash("sha256", $_POST["password"]);
+
+            $sqlInsert = $mysqli->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
+
+            $sqlInsert->bind_param("sss",
+                $_POST['username'],
+                $_POST['email'],
+                $password);
+
+            $executedInsert = $sqlInsert->execute();
+
+            if (!$executedInsert) {
+                exit();
+            }
+
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["logged_in"] = true;
+
+            $sqlInsert->close();
+        }
+
+        // close statements
+        $sql_registered->close();
+
+        // close connection
+        $mysqli->close();
+
+    }
 }
 else {
-	// Connect to the DB and insert a new user to the users table
-	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
-	if ($mysqli->connect_errno) {
-		echo $mysqli->connect_error;
-		exit();
-	}
-
-	// Before creating a new user, check the users table to see if the user and/or email address already exists.
-	$sql_registered = $mysqli->prepare("SELECT * FROM users WHERE username = ? OR email = ?;");
-
-	$sql_registered->bind_param("ss", $_POST["username"], $_POST["email"]);
-
-	$sql_registered->execute();
-
-	$sql_registered->store_result();
-
-	// var_dump($sql_registered->num_rows);
-
-	// If we get even ONE result back from this SELECT query, it means username OR email already exists in the database!
-	if($sql_registered->num_rows > 0) {
-		$error = "Username or email address has already been taken. Please choose another one.";
-	} 
-	else {
-		//echo "uniqe";
-		// SQL to insert - use prepared statements
-		$password = hash("sha256", $_POST["password"]);
-
-		// make date into a string
-		//$date = mysql_real_escape_string($_POST["birthday"]);
-
-		//$birthday = date("Y-m-d", strtotime(str_replace('-', '/', $date)));
-//		$mysqldate = date('Y-m-d', strtotime($_POST["birthday"]));
-
-		//echo $mysqldate;
-
-		$sqlInsert = $mysqli->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
-
-		$sqlInsert->bind_param("sss",
-			$_POST['username'],
-			$_POST['email'],
-			$password);
-
-		$executedInsert = $sqlInsert->execute();
-
-		if (!$executedInsert) {
-			echo $mysqli->error;
-			exit();
-		}
-
-        $_SESSION["username"] = $_POST["username"];
-        $_SESSION["logged_in"] = true;
-	}
-
-
-	$mysqli->close();
-
-
+    // user is already logged in, so redirect them to another page
+    header("Location:  index.php");
 }
+
+
 
 ?>
 
@@ -107,10 +113,6 @@ else {
 			</div>
 		</div>
 
-
-	
-
-	
 	<!-- POPPERS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<!-- BOOTSTRAP -->
