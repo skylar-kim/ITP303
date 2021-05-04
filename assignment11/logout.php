@@ -1,5 +1,9 @@
 <?php 
-
+/*
+  * PURPOSE: log users out.
+  * If there is a user session active, then destroy the session and set session data to false.
+  * If there is no user session active and a guest tries to access this page, direct them back to the home page.
+  */
 session_start();
 
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
