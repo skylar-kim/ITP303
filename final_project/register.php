@@ -68,7 +68,7 @@ else {
 							<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password: <span class="text-danger">*</span></label>
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
-									<input type="text" class="form-control" id="password-id" name="password">
+									<input type="password" class="form-control" id="password-id" name="password">
                                     <h3 id="password-error" class="invalid-feedback">Password is required.</h3>
 								</div>
 							</div> <!-- .form-group -->
