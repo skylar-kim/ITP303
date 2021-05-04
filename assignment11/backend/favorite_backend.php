@@ -1,12 +1,26 @@
-<?php 
+<?php
+/*
+  * PURPOSE: If there is an active user session, this php file handles adding APOD video/image
+  * to the active user's list of favorites. This file finds the user_id corresponding to the username
+  * and the photo_id corresponding to the POST data. Then it checks if the user has already added this
+  * APOD media to their list of favorites. If it is not already added, then it will add the picture to
+  * the user's list of favorites. If there is no active user session, there is a JSON response sent back.
+  * JSON return message possibilities:
+  * {"message": "failure to connect to database"}
+  * {"message": "readding favorites"}
+  * {"message": "success"}
+  * {"message": "user session not active"}
+  */
 require("../config/config.php");
 
 // user session active
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
-	$mysqli = new mysqli('303.itpwebdev.com', 'kimsooye_db_user', 'uscitp2021!', 'kimsooye_astra_db');
+	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 	if ($mysqli->connect_errno) {
-		echo $mysqli->connect_error;
+        $response = array("message" => "failure to connect to database");
+        header('Content-Type: application/json');
+        echo json_encode($response);
 		exit();
 	}
 
@@ -15,9 +29,9 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 	// echo $username;
 
 	// get the photo date of the photo user just favorited
+    // convert into proper format
 	$mysqldate = date('Y-m-d', strtotime($_POST["favDate"]));
 
-	
 
 	// execute SQL SELECT statement to find user_id
 	// SELECT user_id FROM users WHERE username = ?;
@@ -79,16 +93,21 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 		if (!$sqlInsert) {
 			exit();
 		}
+        // return successful json message
 		else {
 			$response = array("message" => "success");
 
 			header('Content-Type: application/json');
 			echo json_encode($response);
 		}
+        $sqlInsert->close();
 
-		// return successful json message
 	}
-	
+
+	// close connection and statements
+    $sqlSelectUser->close();
+    $sqlSelectPhoto->close();
+    $sqlCheckFav->close();
 	$mysqli->close();
 }
 
