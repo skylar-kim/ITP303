@@ -1,7 +1,12 @@
 <?php 
 
 require 'config/config.php';
-
+/*
+ * PURPOSE: This PHP file logs in the user. If there is a successful login, the SESSION data is set to the
+ * logged in user and the user is redirected to the home page. If there is not a successful login, then an error
+ * message is displayed. If a logged in user tries to access this page manually and they are already logged in,
+ * the user is automatically redirected to the home page.
+ */
 // If user is logged in, don't show them this page. Redirect them somewhere else.
 // if not logged in, do the usual thing
 if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
@@ -24,16 +29,11 @@ if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
 			$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 			if($mysqli->connect_errno) {
-				echo $mysqli->connect_error;
 				exit();
 			}
 
 			// hash whatever user typed in for the password field and then compare that with the hashed pw in the db
 			$passwordInput = hash("sha256", $_POST["password"]);
-
-
-			// $sql = "SELECT * FROM users
-			// 			WHERE username = '" . $_POST['username'] . "' AND password = '" . $passwordInput . "';";
 
 			// make prepared statement
 			$sqlLogin = $mysqli->prepare("SELECT * FROM users WHERE username = ? AND password = ?;");
@@ -68,6 +68,12 @@ if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
 			else {
 				$error = "Invalid username or password.";
 			}
+
+			// close statement
+            $sqlLogin->close();
+
+			// close connection
+            $mysqli->close();
 		} 
 	}
 }
@@ -75,10 +81,6 @@ else {
 	// user is already logged in, so redirect them to another page
 	header("Location:  index.php");
 }
-
-
-
-
 
 
  ?>
