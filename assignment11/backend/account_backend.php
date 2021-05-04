@@ -28,7 +28,8 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 	if ($mysqli->connect_errno) {
-		echo $mysqli->connect_error;
+		//echo $mysqli->connect_error;
+        $mysqli->close();
 		exit();
 		// there's an error in the connection just redirect to home page
         header("Location: index.php");

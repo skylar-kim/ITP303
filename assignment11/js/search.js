@@ -78,7 +78,8 @@ $(document).ready(function () {
 		let parsedMessage = result;
 		// TODO: message: success
 		if (parsedMessage.message == "success") {
-			window.location.href == "search.php";
+			console.log(parsedMessage.message)
+			window.location.href = "search.php";
 		}
 		// TODO: message: "readding favorites"
 		else if (parsedMessage.message == "readding favorites") {
