@@ -1,3 +1,16 @@
+<?php
+session_start();
+/*
+ * PURPOSE: Register form. Directs logged in users back to the home page is there is an active user session.
+ */
+if ( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]  ) {
+
+}
+else {
+    // user is already logged in, so redirect them to another page
+    header("Location:  index.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
