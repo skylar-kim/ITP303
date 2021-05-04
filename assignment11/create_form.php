@@ -1,3 +1,19 @@
+<?php 
+session_start();
+
+// this page is an admin-only accessible page
+if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true 
+	&& isset($_SESSION["username"]) && $_SESSION["username"] == "skylarkim") {
+	
+}
+else {
+
+	// user session not active: direct to index page
+	// or user session active but not admin user, direct to index page
+	header("Location: index.php");
+}
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,45 +39,59 @@
 		<div class="form-div">
 			<div class="container register-container my-2 py-4 mx-auto mr-auto">
 				<div class="row justify-content-center">
-					<h1 class="description-style col-12 col-sm-12 col-md-12 col-lg-12">Register</h1>
+					<h1 class="description-style col-12 col-sm-12 col-md-12 col-lg-12">Create Today's APOD Entry</h1>
 
 					<div class="container ">
 
-						<form action="register_confirmation.php" method="POST">
+						<form action="create_confirmation.php" method="POST">
 
-							<!-- Email -->
-							<label for="email-id" class="col-sm-12 text-white text-center form-label-style">Email:</label>
+							<!-- URL -->
+							<label for="url-id" class="col-sm-12 text-white text-center form-label-style">URL:</label>
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
-									<input type="text" class="form-control" id="email-id" name="email">
+									<input type="text" class="form-control" id="url-id" name="url">
 								</div>
 							</div> <!-- .form-group -->
 
-							<!-- Username -->
-							<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username:</label>
+							<!-- Title -->
+							<label for="title-id" class="col-sm-12 text-white text-center form-label-style">Title:</label>
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
-									<input type="text" class="form-control" id="username-id" name="username">
+									<input type="text" class="form-control" id="title-id" name="title">
 								</div>
 							</div> <!-- .form-group -->
 
-							<!-- password -->
-							<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password:</label>
+							<!-- Media Type -->
+							<label for="media-type-id" class="col-sm-12 text-white text-center form-label-style">Media Type:</label>
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
-									<input type="text" class="form-control" id="password-id" name="password">
+									<select class="custom-select" id="media-type-id" name="media">
+									    <option selected>Choose...</option>
+									    <option value="1">image</option>
+									    <option value="2">video</option>
+									</select>
+								</div>
+							</div> <!-- .form-group -->
+							  
+							  
+							<!-- Copyright -->
+							<label for="copyright-id" class="col-sm-12 text-white text-center form-label-style">Copyright:</label>
+							<div class="form-group row justify-content-center">
+								<div class="col-sm-12 col-md-10 col-lg-8">
+									<input type="text" class="form-control" id="copyright-id" name="copyright">
 								</div>
 							</div> <!-- .form-group -->
 
-							<!-- birthday -->
-<!--							<label for="birthday-id" class="col-sm-12 text-white text-center form-label-style">Birthday:</label>-->
-<!--							<div class="form-group row justify-content-center">-->
-<!--								<div class="col-sm-12 col-md-10 col-lg-8">-->
-<!--									<input type="date" class="form-control" id="birthday-id" name="birthday">-->
-<!--								</div>-->
-<!--							</div> -->
+							<!-- Explanation -->
+							<label for="explanation-id" class="col-sm-12 text-white text-center form-label-style">Explanation:</label>
+							<div class="form-group row justify-content-center">
+								<div class="col-sm-12 col-md-10 col-lg-8">
+									<input type="textarea" class="form-control" id="explanation-id" name="explanation">
+								</div>
+							</div> <!-- .form-group -->
+
 							<div class="row justify-content-center">
-								<button type="submit" class="btn btn-outline-light btn-lg">Register</button>
+								<button type="submit" class="btn btn-outline-light btn-lg">Create</button>
 							</div> <!-- .row -->
 							
 						</form>

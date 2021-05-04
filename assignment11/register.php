@@ -53,14 +53,7 @@
 									<input type="text" class="form-control" id="password-id" name="password">
 								</div>
 							</div> <!-- .form-group -->
-
-							<!-- birthday -->
-<!--							<label for="birthday-id" class="col-sm-12 text-white text-center form-label-style">Birthday:</label>-->
-<!--							<div class="form-group row justify-content-center">-->
-<!--								<div class="col-sm-12 col-md-10 col-lg-8">-->
-<!--									<input type="date" class="form-control" id="birthday-id" name="birthday">-->
-<!--								</div>-->
-<!--							</div> -->
+							
 							<div class="row justify-content-center">
 								<button type="submit" class="btn btn-outline-light btn-lg">Register</button>
 							</div> <!-- .row -->

@@ -24,6 +24,11 @@
 				<li class="nav-item">
 					<a class="nav-link navbar-text-style" href="logout.php">logout</a>
 				</li>
+				<?php if ( isset($_SESSION["username"]) && $_SESSION["username"] == "skylarkim" ): ?>
+					<li class="nav-item">
+						<a class="nav-link navbar-text-style" href="create_form.php">create apod entry</a>
+					</li>
+				<?php endif; ?>
 			<?php endif; ?>
 
 			

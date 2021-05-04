@@ -24,18 +24,29 @@ session_destroy();
 	<!-- JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	
-	<link rel="stylesheet" type="text/css" href="css/logout.css">
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+	<style type="text/css">
+		body {
+			color: white;
+		}
+	</style>
 </head>
 <body>
+	<div class="top-half">
+		<?php include 'navbar.php'; ?>
 
+		<div class="sticky-top hidden-spacer"> </div>
 
-	<div class="container">
-		<div class="row justify-content-center">
-			<h1 class="col-12">Logout</h1>
-			<div class="col-12">You are now logged out.</div>
-			<div class="col-12 mt-3">You can go to <a href="index.php">home page</a> or <a href="login.php">log in</a> again.</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<h1 class="col-12">Logout</h1>
+				<div class="col-12">You are now logged out.</div>
+				<div class="col-12 mt-3">You can go to <a href="index.php">home page</a> or <a href="login.php">log in</a> again.</div>
+			</div>
 		</div>
 	</div>
+
+	
 
 	
 	<!-- POPPERS -->
