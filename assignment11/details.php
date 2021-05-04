@@ -1,6 +1,11 @@
 <?php 
 require("config/config.php");
-
+/*
+ * PURPOSE: This PHP file displays the details of the APOD entry when clicked from account.php.
+ * This file checks if there is a user session active. If there is an active user session, this program
+ * will fetch the APOD details from the DB and display it.
+ * If there is no active user session, this program will redirect the viewer to the home page.
+ */
 // check if user session is active
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true 
 	&& isset($_GET["photo_id"]) && !empty($_GET["photo_id"])) 
@@ -14,32 +19,31 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true
 	$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 	if ($mysqli->connect_errno) {
-		echo $mysqli->connect_error;
 		exit();
 	}
 
 	// get photo information from database
+    // prepare statement
 	$sqlSelect = $mysqli->prepare("SELECT * FROM photos WHERE photo_id = ?;");
 
+	// bind parameters
 	$sqlSelect->bind_param("i", $photo_id);
 
+	// execute statement
 	$sqlSelect->execute();
 
 	if (!$sqlSelect) {
 		exit();
 	}
 
+	// get result
 	$result = $sqlSelect->get_result();
 
+	// get row from result
 	$row = $result->fetch_assoc();
 
-
-
-
-
-
-
-
+	// close statements and connections
+	$sqlSelect->close();
 	$mysqli->close();
 
 

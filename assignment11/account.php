@@ -1,6 +1,9 @@
 <?php 
 session_start();
-
+/*
+ * PURPOSE: If there is an active user session, the user's list of favorite APOD pictures and videos
+ * are displayed here. If there is no active user session, the viewer will be redirected to the home page.
+ */
 if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 }
 else {
