@@ -12,7 +12,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!-- JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="css/register.css">
+
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+
 </head>
 <body>
 
@@ -31,28 +33,38 @@
 						<form action="register_confirmation.php" method="POST">
 
 							<!-- Email -->
-							<label for="email-id" class="col-sm-12 text-white text-center form-label-style">Email:</label>
+							<label for="email-id" class="col-sm-12 text-white text-center form-label-style">Email: <span class="text-danger">*</span></label>
+
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
 									<input type="text" class="form-control" id="email-id" name="email">
+                                    <h3 id="email-error" class="invalid-feedback">Email is required.</h3>
 								</div>
 							</div> <!-- .form-group -->
 
 							<!-- Username -->
-							<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username:</label>
+							<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username: <span class="text-danger">*</span></label>
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
 									<input type="text" class="form-control" id="username-id" name="username">
+                                    <h3 id="username-error" class="invalid-feedback">Username is required.</h3>
 								</div>
 							</div> <!-- .form-group -->
 
 							<!-- password -->
-							<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password:</label>
+							<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password: <span class="text-danger">*</span></label>
 							<div class="form-group row justify-content-center">
 								<div class="col-sm-12 col-md-10 col-lg-8">
 									<input type="text" class="form-control" id="password-id" name="password">
+                                    <h3 id="password-error" class="invalid-feedback">Password is required.</h3>
 								</div>
 							</div> <!-- .form-group -->
+
+                            <div class="row justify-content-center">
+                                <div class="col-sm-12 col-md-10 col-lg-8 ">
+                                    <span class="text-danger font-italic">* Required</span>
+                                </div>
+                            </div> <!-- .form-group -->
 							
 							<div class="row justify-content-center">
 								<button type="submit" class="btn btn-outline-light btn-lg">Register</button>
@@ -75,6 +87,30 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<!-- BOOTSTRAP -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector('form').onsubmit = function(){
+            if ( document.querySelector('#username-id').value.trim().length == 0 ) {
+                document.querySelector('#username-id').classList.add('is-invalid');
+            } else {
+                document.querySelector('#username-id').classList.remove('is-invalid');
+            }
 
+            if ( document.querySelector('#email-id').value.trim().length == 0 ) {
+                document.querySelector('#email-id').classList.add('is-invalid');
+            } else {
+                document.querySelector('#email-id').classList.remove('is-invalid');
+            }
+
+            if ( document.querySelector('#password-id').value.trim().length == 0 ) {
+                document.querySelector('#password-id').classList.add('is-invalid');
+            } else {
+                document.querySelector('#password-id').classList.remove('is-invalid');
+            }
+
+            return ( !document.querySelectorAll('.is-invalid').length > 0 );
+
+
+        }
+    </script>
 </body>
 </html>

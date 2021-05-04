@@ -2,10 +2,13 @@
 
 session_start();
 
-$_SESSION["logged_in"] = false;
-session_destroy();
-
-
+if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true) {
+    $_SESSION["logged_in"] = false;
+    session_destroy();
+}
+else {
+    header("Location: index.php");
+}
 
  ?>
 

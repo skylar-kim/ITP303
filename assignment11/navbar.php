@@ -19,7 +19,7 @@
 
 			<?php else: ?>
 				<li class="nav-item">
-					<a class="nav-link navbar-text-style" href="account.php">Hello <?php echo $_SESSION["username"]; ?></a>
+					<a class="nav-link navbar-text-style" href="account.php"><?php echo $_SESSION["username"]; ?>'s account</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link navbar-text-style" href="logout.php">logout</a>

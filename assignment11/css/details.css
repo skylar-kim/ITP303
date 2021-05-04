@@ -22,3 +22,7 @@ body {
 .search-result-show {
 	display: block;
 }
+
+.navbar-text-style {
+	color: white !important;
+}

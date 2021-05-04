@@ -28,3 +28,7 @@ video {
 .card-transparent {
     background-color: transparent;
 }
+
+.navbar-text-style {
+    color: white !important;
+}

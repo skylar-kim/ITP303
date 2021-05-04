@@ -30,17 +30,18 @@ session_start();
 	<div class="container">
 		<div class="container register-container my-2 py-4 mx-auto mr-auto d-block search-form-container">
 			<div class="row justify-content-center">
-				<h1 class="title-style col-12 col-sm-12 col-md-12 col-lg-12">ASTRA</h1>
+				<h1 class="title-style col-12 col-sm-12 col-md-12 col-lg-12">A S T R A</h1>
 
 				<div class="container">
 
 					<form id="search-form" action="" method="GET">
 
 
-						<label for="search-date" class="col-sm-12 text-white text-center form-label-style description-style">Search by Date:</label>
+						<label for="search-date" class="col-sm-12 text-white text-center form-label-style description-style">Search by Date: <span class="text-danger">*</span></label>
 						<div class="form-group row justify-content-center">
 							<div class="col-sm-12 col-md-10 col-lg-8">
-								<input type="date" class="form-control" id="search-date" name="username">
+								<input type="date" class="form-control" id="search-date" name="searchdate">
+                                <h3 id="date-error" class="invalid-feedback">Date is required.</h3>
 							</div>
 						</div>
 
@@ -83,16 +84,23 @@ session_start();
 		</div>
 	</div>
 
-
-
-
-
-	
 	<!-- POPPERS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<!-- BOOTSTRAP -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<!-- LIGHTBOX -->
 	<script src="lightbox2-dev/src/js/lightbox.js"></script>
+
+    <script>
+        document.querySelector('form').onsubmit = function(){
+            if ( document.querySelector('#search-date').value.trim().length == 0 ) {
+                document.querySelector('#search-date').classList.add('is-invalid');
+            } else {
+                document.querySelector('#search-date').classList.remove('is-invalid');
+            }
+            return ( !document.querySelectorAll('.is-invalid').length > 0 );
+
+        }
+    </script>
 </body>
 </html>

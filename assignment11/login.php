@@ -126,20 +126,28 @@ else {
 							<!-- Username -->
 							
 							<div class="form-group row justify-content-center">
-								<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username:</label>
+								<label for="username-id" class="col-sm-12 text-white text-center form-label-style">Username: <span class="text-danger">*</span></label>
 								<div class="col-sm-12 col-md-8 col-lg-6">
 									<input type="text" class="form-control" id="username-id" name="username">
+                                    <h3 id="username-error" class="invalid-feedback">Username is required.</h3>
 								</div>
 							</div> <!-- .form-group -->
 
 							<!-- password -->
 							
 							<div class="form-group row justify-content-center">
-								<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password:</label>
+								<label for="password-id" class="col-sm-12 text-white text-center form-label-style">Password: <span class="text-danger">*</span></label>
 								<div class="col-sm-12 col-md-8 col-lg-6">
 									<input type="text" class="form-control" id="password-id" name="password">
+                                    <h3 id="password-error" class="invalid-feedback">Password is required.</h3>
 								</div>
 							</div> <!-- .form-group -->
+
+                            <div class="row justify-content-center">
+                                <div class="col-sm-12 col-md-8 col-lg-6">
+                                    <span class="text-danger font-italic">* Required</span>
+                                </div>
+                            </div> <!-- .form-group -->
 							
 							<div class="row justify-content-center">
 								<button type="submit" class="btn btn-outline-light btn-lg">Login</button>
@@ -163,5 +171,24 @@ else {
 	<!-- BOOTSTRAP -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <script>
+        document.querySelector('form').onsubmit = function(){
+            if ( document.querySelector('#username-id').value.trim().length == 0 ) {
+                document.querySelector('#username-id').classList.add('is-invalid');
+            } else {
+                document.querySelector('#username-id').classList.remove('is-invalid');
+            }
+
+            if ( document.querySelector('#password-id').value.trim().length == 0 ) {
+                document.querySelector('#password-id').classList.add('is-invalid');
+            } else {
+                document.querySelector('#password-id').classList.remove('is-invalid');
+            }
+
+            return ( !document.querySelectorAll('.is-invalid').length > 0 );
+
+
+        }
+    </script>
 </body>
 </html>

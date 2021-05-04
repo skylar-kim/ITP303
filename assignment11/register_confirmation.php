@@ -60,6 +60,9 @@ else {
 			echo $mysqli->error;
 			exit();
 		}
+
+        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["logged_in"] = true;
 	}
 
 
