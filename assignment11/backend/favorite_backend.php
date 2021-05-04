@@ -97,7 +97,7 @@ if ( isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true ) {
 else {
 	// header("Location:  login.php");
 	$response = array("message" => "user session not active");
-
+    header('Content-Type: application/json');
 	echo json_encode($response);
 }
 

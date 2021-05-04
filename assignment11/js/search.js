@@ -75,74 +75,108 @@ $(document).ready(function () {
 	}
 
 	function displayFavoriteResponse(result) {
-		
-		if (result.message == "success") {
-			window.location.href = "search.php";
+		let parsedMessage = result;
+		// TODO: message: success
+		if (parsedMessage.message == "success") {
+			window.location.href == "search.php";
 		}
+		// TODO: message: "readding favorites"
+		else if (parsedMessage.message == "readding favorites") {
+			let alertMessage = "Already added to gallery.";
+			alert(alertMessage);
+		}
+		// TODO: message: "user session is not active
 		else {
-			alert(result.message);
+			let alertMessage = "Must be logged in to favorite image.";
+			alert(alertMessage);
 		}
+
 	}
+
 
 	function displayGetResult(result) {
 
-		// clears out the existing elements in searchResult
-		$searchResult.html("");
+		if (result.message == 'Date is required.') {
+			// clear out the existing elements in searchResult
+			$searchResult.html("");
 
-		for (let apod of result) {
-			let apodHTML = ``;
-			if (apod.media_type == "video") {
-				console.log("media type is video");
+			// error message HTML
+			let errorHTML = `<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+								<h3 class="text-white text-center">Date is required.</h3>
+							</div>`;
 
-			apodHTML = 
-			`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
+			// append the HTML element to searchResult
+			$searchResult.append(errorHTML);
+		}
+		else {
+			// if there is no message from JSON result, then data is good
+			// clears out the existing elements in searchResult
+			$searchResult.html("");
+
+			// one APOD result is returned in an array
+			for (let apod of result) {
+				let apodHTML = ``;
+
+				// HTML elements if the media_type is a video
+				if (apod.media_type == "video") {
+					console.log("media type is video");
+
+					apodHTML =
+						`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
 				
-				<div class="embed-responsive embed-responsive-16by9">
-			   		<iframe class="embed-responsive-item" src="${apod.url}" allowfullscreen></iframe>
-				</div>
-			</div>
-
-			<div class="col-12 col-sm-12 col-md-12 col-lg-5">
-				
-				<h2 class="picture-title">${apod.title}</h2>
-
-				<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
-				
-				<h5 id="photo-date" class="picture-title py-2">${apod.date}</h5>
-				<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
-				<p class="picture-title">${apod.explanation}</p>
-			</div>`;
-			}
-			else if (apod.media_type == "image") {
-				console.log("media type is image")
-
-				apodHTML = 
-				`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
-				
-					<a href="${apod.url}" data-lightbox="${apod.title}" data-title="${apod.title}" >
-						<img src="${apod.url}" class="img-fluid" alt="${apod.title}">
-					</a>
-				</div>
-
-				<div class="col-12 col-sm-12 col-md-12 col-lg-5">
-					
-					<h2 class="picture-title">${apod.title}</h2>
-					<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
-					
-					<h5 id="photo-date" class="picture-title py-2">${apod.date}</h5>
-					<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
-					<p class="picture-title">${apod.explanation}</p>
-				</div>`;
-			}
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" src="${apod.url}" allowfullscreen></iframe>
+							</div>
+						</div>
 			
+						<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+							
+							<h2 class="picture-title">${apod.title}</h2>
+			
+							<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
+							
+							<h5 id="photo-date" class="picture-title py-2">${apod.date}</h5>
+							<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
+							<p class="picture-title">${apod.explanation}</p>
+						</div>`;
+				}
+				// HTML elements if the media_type is an image
+				else if (apod.media_type == "image") {
+					console.log("media type is image")
 
-			$searchResult.append(apodHTML);
+					apodHTML =
+						`<div class="col-12 col-sm-12 col-md-12 col-lg-7">
+				
+							<a href="${apod.url}" data-lightbox="${apod.title}" data-title="${apod.title}" >
+								<img src="${apod.url}" class="img-fluid" alt="${apod.title}">
+							</a>
+						</div>
+		
+						<div class="col-12 col-sm-12 col-md-12 col-lg-5">
+							
+							<h2 class="picture-title">${apod.title}</h2>
+							<button type="button" class="btn btn-outline-light favorite-button">Favorite</button>
+							
+							<h5 id="photo-date" class="picture-title py-2">${apod.date}</h5>
+							<h5 class="picture-title">Copyright: ${apod.copyright}</h5>
+							<p class="picture-title">${apod.explanation}</p>
+						</div>`;
+				}
+
+				// append the HTML element to searchResult
+				$searchResult.append(apodHTML);
+			}
+
 		}
 
+		// hide the search bar/search form
 		$searchFormContainer.removeClass("d-block");
 		$searchFormContainer.addClass("d-none");
 
+		// display the searchResult (error or valid data)
 		$searchResult.removeClass("d-none");
 		$searchResult.addClass("d-flex");
+
+
 	}
 })
