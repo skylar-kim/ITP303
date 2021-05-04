@@ -55,6 +55,7 @@ $(document).ready(function () {
 		})
 		.fail(function() {
 			console.log("fail");
+			alert("You are only allowed to input dates up to and including today.")
 		});
 	}
 
